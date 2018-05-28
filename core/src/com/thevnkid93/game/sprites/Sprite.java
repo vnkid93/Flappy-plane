@@ -6,10 +6,12 @@ import com.badlogic.gdx.math.Vector2;
 public abstract class Sprite {
 
     protected Vector2 position;
+    protected int width, height; // the drawing size, not the true texture size
 
-    public Sprite(float x, float y){
+    public Sprite(float x, float y, int width, int height){
         position = new Vector2(x, y);
-
+        this.width = width;
+        this.height = height;
     }
 
     public abstract void update(float dt);

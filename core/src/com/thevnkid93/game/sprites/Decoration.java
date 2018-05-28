@@ -9,8 +9,8 @@ public class Decoration extends Sprite {
 
     private TextureRegion frame;
 
-    public Decoration(float x, float y, TextureRegion frame) {
-        super(x, y);
+    public Decoration(float x, float y, int width, int height, TextureRegion frame) {
+        super(x, y, width, height);
         this.frame = frame;
     }
 
@@ -26,7 +26,7 @@ public class Decoration extends Sprite {
 
     @Override
     public void draw(SpriteBatch sb) {
-        sb.draw(frame, position.x, position.y);
+        sb.draw(frame, position.x, position.y, width, height);
     }
 
     public void setFrame(TextureRegion frame){

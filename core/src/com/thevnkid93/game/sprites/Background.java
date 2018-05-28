@@ -7,8 +7,8 @@ import com.thevnkid93.game.managers.BackgroundManager;
 public class Background extends Sprite {
     private TextureRegion frame;
 
-    public Background(float x, TextureRegion frame) {
-        super(x, 0);
+    public Background(float x, int width, int height, TextureRegion frame) {
+        super(x, 0, width, height);
         this.frame = frame;
     }
 
@@ -24,7 +24,7 @@ public class Background extends Sprite {
 
     @Override
     public void draw(SpriteBatch sb) {
-        sb.draw(frame, position.x, position.y);
+        sb.draw(frame, position.x, position.y, width, height);
     }
 
     public void setFrame(TextureRegion frame){

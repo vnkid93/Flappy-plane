@@ -5,32 +5,41 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.thevnkid93.game.ImgCons;
+import com.thevnkid93.game.MyGame;
 import com.thevnkid93.game.sprites.Background;
 
 
 public class BackgroundManager extends SpriteManager {
 
     public static final int BACKGROUND_SCROLLING_SPEED = 20;
-    private static final int FRAME_COUNT = 3;
+    private static final int FRAME_COUNT = 4;
     private Background backgrounds[];
     private Texture texture;
     private Array<TextureRegion> frames;
-    private int frameWidth;
+    private int frameWidth, frameHeight;
+    private int drawingWidth, drawingHeight;
     private int firstBackgroundIndex;
 
-    public BackgroundManager(int screenWidth){
-        super(screenWidth);
+
+    public BackgroundManager(){
         firstBackgroundIndex = 0;
         texture = new Texture(ImgCons.BACKGROUNDS);
-        frameWidth = texture.getWidth();
+        // true image size
+        frameWidth = texture.getWidth()/FRAME_COUNT;
+        frameHeight = texture.getHeight();
+        // drawing size
+        drawingHeight = MyGame.HEIGHT;
+        drawingWidth = frameWidth * drawingHeight / frameHeight;
+
+
         frames = new Array<TextureRegion>();
         for (int i = 0; i < FRAME_COUNT; i++) {
             frames.add(new TextureRegion(texture, i * frameWidth, 0, frameWidth, texture.getHeight()));
         }
-        int count = (int)Math.ceil((float)screenWidth/frameWidth + 1);
+        int count = (int)Math.ceil((float)MyGame.WIDTH /frameWidth + 1);
         backgrounds = new Background[count];
         for (int i = 0; i < backgrounds.length; i++) {
-            backgrounds[i] = new Background(i*frameWidth, frames.get(0));
+            backgrounds[i] = new Background(i*drawingWidth, drawingWidth, drawingHeight, frames.get(0));
         }
         randBackground();
     }
@@ -41,7 +50,7 @@ public class BackgroundManager extends SpriteManager {
             backgrounds[i].update(dt);
         }
 
-        if(backgrounds[firstBackgroundIndex].getPosition().x < -frameWidth){
+        if(backgrounds[firstBackgroundIndex].getPosition().x < -drawingWidth){
             reposition();
         }
     }
@@ -59,12 +68,17 @@ public class BackgroundManager extends SpriteManager {
     }
 
     private void reposition(){
-        backgrounds[firstBackgroundIndex].getPosition().x = frameWidth * (backgrounds.length-1);
+        int lastBackgroundIndex = firstBackgroundIndex-1;
+        if(firstBackgroundIndex == 0){
+            lastBackgroundIndex = backgrounds.length-1;
+        }
+        backgrounds[firstBackgroundIndex].getPosition().x = backgrounds[lastBackgroundIndex].getPosition().x + drawingWidth;
         firstBackgroundIndex = (firstBackgroundIndex+1) % backgrounds.length;
     }
 
     private void randBackground(){
-        TextureRegion newBackground = frames.get((int)(Math.random()*backgrounds.length));
+        int index = (int)(Math.random()*FRAME_COUNT);
+        TextureRegion newBackground = frames.get(index);
         for (int i = 0; i < backgrounds.length; i++) {
             backgrounds[i].setFrame(newBackground);
         }

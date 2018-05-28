@@ -3,11 +3,6 @@ package com.thevnkid93.game.managers;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public abstract class SpriteManager {
 
-    protected int screenWidth;
-
-    public SpriteManager(int screenWidth){
-        this.screenWidth = screenWidth;
-    }
 
     public abstract void update(float dt);
     public abstract void draw(SpriteBatch sb);

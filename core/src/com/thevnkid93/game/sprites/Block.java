@@ -11,7 +11,7 @@ public class Block extends Sprite {
     private Texture blockTx;
 
     public Block(float x) {
-        super(x, 0);
+        super(x, 0, 0, 0);
     }
 
     @Override

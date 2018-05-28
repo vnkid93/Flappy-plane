@@ -3,6 +3,7 @@ package com.thevnkid93.game.sprites;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
 
@@ -14,6 +15,7 @@ public class Plane extends Sprite{
     private static final float ANIMATION_CYCLE_TIME = 0.3f;
     public static final int PLANE_WIDTH = MyGame.WIDTH/6;
     public static final int PLANE_HEIGHT = PLANE_WIDTH * FRAME_HEIGHT / FRAME_WIDTH;
+    private Vector2 velocity;
 
     private static final int GRAVITY = -20;
     private Texture plane;
@@ -27,12 +29,11 @@ public class Plane extends Sprite{
     private Animation animation;
 
     public Plane(float x, float y){
-        super(x, y);
+        super(x, y, PLANE_WIDTH, PLANE_HEIGHT);
         plane = new Texture(ImgCons.PLANES);
         int planeIndex = (int) (Math.random()*planeSprites.length);
-        position.set(planeSprites[planeIndex][0][0],planeSprites[planeIndex][0][1],0);
         state = PlaneState.FLYING;
-
+        velocity = new Vector2();
         animation = new Animation(new TextureRegion(plane), FRAME_WIDTH, FRAME_HEIGHT, ANIMATION_CYCLE_TIME, planeSprites[planeIndex]);
     }
 
@@ -40,10 +41,10 @@ public class Plane extends Sprite{
     public void update(float dt) {
         animation.update(dt);
         if(position.y >= 0){
-            velocity.add(0, GRAVITY, 0);
+            velocity.add(0, GRAVITY);
         }
         velocity.scl(dt);
-        position.add(0, velocity.y, 0);
+        position.add(0, velocity.y);
 
         if(position.y < 0){
             position.y = 0;

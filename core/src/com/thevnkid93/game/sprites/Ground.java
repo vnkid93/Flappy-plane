@@ -5,10 +5,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
+import com.thevnkid93.game.managers.BackgroundManager;
 
 public class Ground extends Sprite {
 
-    public static final int SCROLLING_SPEED = 100;
+    public static final int SCROLLING_SPEED = 5*BackgroundManager.BACKGROUND_SCROLLING_SPEED;
     private Texture groundTop, groundBottom;
     public static final int GROUND_WIDTH = MyGame.HEIGHT/9;
     public static final int GROUND_HEIGHT = GROUND_WIDTH;
@@ -16,7 +17,7 @@ public class Ground extends Sprite {
 
 
     public Ground() {
-        super(0, 0);
+        super(0, 0, GROUND_WIDTH, GROUND_HEIGHT);
         groundTop = new Texture(ImgCons.GROUND_TOP);
         groundBottom = new Texture(ImgCons.GROUND_BOTTOM);
     }

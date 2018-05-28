@@ -14,7 +14,7 @@ public class MenuState extends State {
 
     public MenuState(GameStateManager gsm){
         super(gsm);
-        backgroundTx = new Texture(ImgCons.BACKGROUND);
+        backgroundTx = new Texture(ImgCons.BACKGROUNDS);
         playBtnTx = new Texture(ImgCons.BTN_PLAY_INACTIVE);
     }
 
@@ -34,7 +34,7 @@ public class MenuState extends State {
     @Override
     public void render(SpriteBatch sb) {
         sb.begin();
-        sb.draw(backgroundTx, 0, 0, MyGame.WIDTH, MyGame.HEIGHT);
+        sb.draw(backgroundTx, 0, 0, backgroundTx.getWidth() * MyGame.HEIGHT / backgroundTx.getHeight(), MyGame.HEIGHT);
         sb.draw(playBtnTx, MyGame.WIDTH/2 - playBtnTx.getWidth()/2, MyGame.HEIGHT/2 - playBtnTx.getHeight()/2);
 
         sb.end();

@@ -19,8 +19,8 @@ public class Score extends Sprite {
     private Texture texture;
     private Array<TextureRegion> frames;
 
-    public Score(float x, float y) {
-        super(x, y);
+    public Score(float x, float y, int width, int height) {
+        super(x, y, width, height);
         texture = new Texture(ImgCons.NUMBERS);
         TextureRegion textureRegion = new TextureRegion(texture);
         final int cipherCount = 10;

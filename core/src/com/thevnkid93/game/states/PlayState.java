@@ -1,10 +1,8 @@
 package com.thevnkid93.game.states;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.thevnkid93.game.GameStateManager;
-import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
 import com.thevnkid93.game.managers.BackgroundManager;
 import com.thevnkid93.game.managers.DecorationManager;
@@ -20,9 +18,10 @@ public class PlayState extends State {
 
     public PlayState(GameStateManager gsm){
         super(gsm);
-        plane = new Plane(MyGame.WIDTH/3, MyGame.HEIGHT/2);
+        plane = new Plane(MyGame.WIDTH/4, MyGame.HEIGHT/2);
         ground = new Ground();
-        decorationManager = new DecorationManager(MyGame.WIDTH, Ground.GROUND_HEIGHT*2, 5);
+        decorationManager = new DecorationManager(Ground.GROUND_HEIGHT*2, 5);
+        backgroundManager = new BackgroundManager();
         cam.setToOrtho(false, MyGame.WIDTH, MyGame.HEIGHT);
     }
 
@@ -40,13 +39,14 @@ public class PlayState extends State {
         plane.update(dt);
         ground.update(dt);
         decorationManager.update(dt);
+        backgroundManager.update(dt);
     }
 
     @Override
     public void render(SpriteBatch sb) {
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
-        sb.draw(backgroundTx, 0, 0, MyGame.WIDTH, MyGame.HEIGHT);
+        backgroundManager.draw(sb);
         ground.draw(sb);
         decorationManager.draw(sb);
         plane.draw(sb);
@@ -57,7 +57,7 @@ public class PlayState extends State {
     public void dispose() {
         plane.dispose();
         ground.dispose();
-        backgroundTx.dispose();
+        backgroundManager.dispose();
         decorationManager.dispose();
     }
 }

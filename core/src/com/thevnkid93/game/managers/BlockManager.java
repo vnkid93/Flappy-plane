@@ -40,10 +40,10 @@ public class BlockManager {
                 bottomBlocks[i][j].update(dt);
             }
         }
-        if(topBlocks[indexOfFirstGroup][0].position.x < -Block.BLOCK_WIDTH){
+        if(topBlocks[indexOfFirstGroup][0].getPosition().x < -Block.BLOCK_WIDTH){
             for (int i = 0; i < blockGroupCount; i++) {
-                topBlocks[indexOfFirstGroup][i].position.x = 0;
-                bottomBlocks[indexOfFirstGroup][i].position.x = 0;
+                topBlocks[indexOfFirstGroup][i].getPosition().x = 0;
+                bottomBlocks[indexOfFirstGroup][i].getPosition().x = 0;
             }
             indexOfFirstGroup = (indexOfFirstGroup + 1) % waveCount;
         }

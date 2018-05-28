@@ -5,7 +5,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.thevnkid93.game.GameStateManager;
 import com.thevnkid93.game.MyGame;
 import com.thevnkid93.game.managers.BackgroundManager;
+import com.thevnkid93.game.managers.BlockManager;
 import com.thevnkid93.game.managers.DecorationManager;
+import com.thevnkid93.game.sprites.Block;
 import com.thevnkid93.game.sprites.Ground;
 import com.thevnkid93.game.sprites.Plane;
 
@@ -15,6 +17,7 @@ public class PlayState extends State {
     private Ground ground;
     private DecorationManager decorationManager;
     private BackgroundManager backgroundManager;
+    private BlockManager blockManager;
 
     public PlayState(GameStateManager gsm){
         super(gsm);
@@ -22,6 +25,8 @@ public class PlayState extends State {
         ground = new Ground();
         decorationManager = new DecorationManager(Ground.GROUND_HEIGHT*2, 5);
         backgroundManager = new BackgroundManager();
+        blockManager = new BlockManager(Plane.PLANE_HEIGHT * 3, Block.BLOCK_WIDTH * 3, MyGame.HEIGHT - Ground.GROUND_HEIGHT*2);
+
         cam.setToOrtho(false, MyGame.WIDTH, MyGame.HEIGHT);
     }
 
@@ -40,6 +45,7 @@ public class PlayState extends State {
         ground.update(dt);
         decorationManager.update(dt);
         backgroundManager.update(dt);
+        blockManager.update(dt);
     }
 
     @Override
@@ -47,6 +53,7 @@ public class PlayState extends State {
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
         backgroundManager.draw(sb);
+        blockManager.draw(sb);
         ground.draw(sb);
         decorationManager.draw(sb);
         plane.draw(sb);

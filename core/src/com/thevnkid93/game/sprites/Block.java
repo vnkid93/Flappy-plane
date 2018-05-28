@@ -5,27 +5,34 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Block extends Sprite {
 
-    public static final int BLOCK_WIDTH = 2 * Plane.PLANE_WIDTH;
+    public static final int SCROLLING_SPEED = Ground.SCROLLING_SPEED;
+    public static final int BLOCK_WIDTH = Plane.PLANE_WIDTH * 3 / 2; // 1.5x
     public static final int BLOCK_HEIGHT = BLOCK_WIDTH;
 
-    private Texture blockTx;
+    private Texture texture;
 
-    public Block(float x) {
-        super(x, 0, 0, 0);
+    public Block(float x, float y, Texture texture) {
+        super(x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+        this.texture = texture;
     }
 
     @Override
     public void update(float dt) {
-
+        position.x -= SCROLLING_SPEED * dt;
     }
 
     @Override
-    public void dispose() {
-        blockTx.dispose();
+    public void dispose(){
+        texture.dispose();
     }
 
     @Override
     public void draw(SpriteBatch sb) {
+        sb.draw(texture, position.x, position.y, width, height);
+    }
 
+    @Override
+    public String toString() {
+        return position.x + ", "+ position.y;
     }
 }

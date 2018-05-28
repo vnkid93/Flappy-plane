@@ -20,8 +20,13 @@ public abstract class Sprite {
         return position;
     }
 
+    public int getWidth() {
+        return width;
+    }
 
-
+    public int getHeight() {
+        return height;
+    }
 
     public abstract void dispose();
     public abstract void draw(SpriteBatch sb);

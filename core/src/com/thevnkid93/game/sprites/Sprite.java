@@ -1,6 +1,7 @@
 package com.thevnkid93.game.sprites;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public abstract class Sprite {

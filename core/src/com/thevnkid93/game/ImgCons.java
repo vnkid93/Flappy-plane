@@ -9,7 +9,6 @@ public class ImgCons {
     public static final String PLANE1 = "planeBlue1.png";
     public static final String NUMBERS = "numbers.png";
     public static final String BOX = "box.png";
-    public static final String GROUND_TOP = "groundTop.png";
-    public static final String GROUND_BOTTOM = "groundBottom.png";
+    public static final String GROUNDS = "grounds.png";
     public static final String GROUND_DECORATIONS = "decorations.png";
 }

@@ -4,9 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.thevnkid93.game.GameStateManager;
 import com.thevnkid93.game.MyGame;
-import com.thevnkid93.game.managers.BackgroundManager;
-import com.thevnkid93.game.managers.BlockManager;
-import com.thevnkid93.game.managers.DecorationManager;
+import com.thevnkid93.game.managers.*;
 import com.thevnkid93.game.sprites.Block;
 import com.thevnkid93.game.sprites.Ground;
 import com.thevnkid93.game.sprites.Plane;
@@ -14,19 +12,20 @@ import com.thevnkid93.game.sprites.Plane;
 public class PlayState extends State {
 
     private Plane plane;
-    private Ground ground;
+    private GroundManager groundManager;
     private DecorationManager decorationManager;
     private BackgroundManager backgroundManager;
     private BlockManager blockManager;
+    private ScoreManager scoreManager;
 
     public PlayState(GameStateManager gsm){
         super(gsm);
         plane = new Plane(MyGame.WIDTH/4, MyGame.HEIGHT/2);
-        ground = new Ground();
-        decorationManager = new DecorationManager(Ground.GROUND_HEIGHT*2, 5);
+        groundManager = new GroundManager();
+        decorationManager = new DecorationManager(GroundManager.GROUND_HEIGHT*2, 5);
         backgroundManager = new BackgroundManager();
-        blockManager = new BlockManager(Plane.PLANE_HEIGHT * 3, Block.BLOCK_WIDTH * 3, MyGame.HEIGHT - Ground.GROUND_HEIGHT*2);
-
+        blockManager = new BlockManager(Plane.PLANE_HEIGHT * 3, MyGame.HEIGHT - GroundManager.GROUND_HEIGHT*2);
+        scoreManager = new ScoreManager();
         cam.setToOrtho(false, MyGame.WIDTH, MyGame.HEIGHT);
     }
 
@@ -42,7 +41,7 @@ public class PlayState extends State {
     public void update(float dt) {
         handleInput();
         plane.update(dt);
-        ground.update(dt);
+        groundManager.update(dt);
         decorationManager.update(dt);
         backgroundManager.update(dt);
         blockManager.update(dt);
@@ -54,16 +53,17 @@ public class PlayState extends State {
         sb.begin();
         backgroundManager.draw(sb);
         blockManager.draw(sb);
-        ground.draw(sb);
+        groundManager.draw(sb);
         decorationManager.draw(sb);
         plane.draw(sb);
+        scoreManager.draw(sb);
         sb.end();
     }
 
     @Override
     public void dispose() {
         plane.dispose();
-        ground.dispose();
+        groundManager.dispose();
         backgroundManager.dispose();
         decorationManager.dispose();
     }

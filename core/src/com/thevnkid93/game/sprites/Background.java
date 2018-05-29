@@ -2,6 +2,7 @@ package com.thevnkid93.game.sprites;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.thevnkid93.game.managers.BackgroundManager;
 
 public class Background extends Sprite {
@@ -25,6 +26,11 @@ public class Background extends Sprite {
     @Override
     public void draw(SpriteBatch sb) {
         sb.draw(frame, position.x, position.y, width, height);
+    }
+
+
+    public Rectangle[] getBounds() {
+        return new Rectangle[0];
     }
 
     public void setFrame(TextureRegion frame){

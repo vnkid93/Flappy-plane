@@ -12,7 +12,7 @@ import com.thevnkid93.game.sprites.Plane;
 
 public class DecorationManager extends SpriteManager{
 
-    public static final int DECORATION_SCROLL_SPEED = Ground.SCROLLING_SPEED;
+    public static final int DECORATION_SCROLL_SPEED = GroundManager.SCROLLING_SPEED;
     private static final int DECORATION_COUNT = 8;
     private static final int DECORATION_WIDTH = Plane.PLANE_WIDTH*3/2;
     private int frameWidth;

@@ -2,45 +2,45 @@ package com.thevnkid93.game.managers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
 import com.thevnkid93.game.sprites.Block;
-import com.thevnkid93.game.sprites.Sprite;
+
 
 public class BlockManager extends SpriteManager{
 
-    public static final int WAVE_COUNT = 4;
-    private Sprite topBlocks[][];
-    private Sprite bottomBlocks[][];
+    private static final int SPACING = Block.BLOCK_WIDTH * 3;
 
-    private float spacing, visibleHeight, verticalSpacing;
+    public static final int WAVE_COUNT = 4;
+    private Block topBlocks[][];
+    private Block bottomBlocks[][];
+
+    private float visibleHeight, verticalSpacing;
     private int blockPerGroup; // how many block in half of group (top + bottom = group)
     private int indexOfFirstGroup;
     private Texture texture;
-    private int x;
 
 
-    public BlockManager(float verticalSpacing, float spacingBetweenBlocks, float visibleHeight){
-        this.spacing = spacingBetweenBlocks;
+    public BlockManager(float verticalSpacing, float visibleHeight){
         this.visibleHeight = visibleHeight;
         this.verticalSpacing = verticalSpacing;
         texture = new Texture(ImgCons.BOX);
         blockPerGroup = (int)Math.ceil((visibleHeight - this.verticalSpacing) / Block.BLOCK_HEIGHT);
         generateBlocks();
-        x=0;
     }
 
     private void generateBlocks(){
         //TODO count block group count - depends on screen height
-        topBlocks = new Sprite[WAVE_COUNT][blockPerGroup];
-        bottomBlocks = new Sprite[WAVE_COUNT][blockPerGroup];
+        topBlocks = new Block[WAVE_COUNT][blockPerGroup];
+        bottomBlocks = new Block[WAVE_COUNT][blockPerGroup];
         indexOfFirstGroup = 0;
         int startingX = MyGame.WIDTH * 3 / 2;
         for (int i = 0; i < WAVE_COUNT; i++) {
             int randY = getRandPosY();
             for (int j = 0; j < blockPerGroup; j++) {
-                topBlocks[i][j] = new Block(startingX+(i*spacing), randY + verticalSpacing + (j + blockPerGroup) * Block.BLOCK_HEIGHT, texture);
-                bottomBlocks[i][j] = new Block(startingX+(i*spacing), randY + j * Block.BLOCK_HEIGHT, texture);
+                topBlocks[i][j] = new Block(startingX+(i*SPACING), randY + verticalSpacing + (j + blockPerGroup) * Block.BLOCK_HEIGHT, texture);
+                bottomBlocks[i][j] = new Block(startingX+(i*SPACING), randY + j * Block.BLOCK_HEIGHT, texture);
 
             }
         }
@@ -64,7 +64,7 @@ public class BlockManager extends SpriteManager{
         int width = topBlocks[0][0].getWidth();
         int height = topBlocks[0][0].getHeight();
         int lastGroup = indexOfFirstGroup - 1 < 0 ? WAVE_COUNT - 1 : indexOfFirstGroup - 1;
-        float newPosX = topBlocks[lastGroup][0].getPosition().x + width + spacing;
+        float newPosX = topBlocks[lastGroup][0].getPosition().x + SPACING;
         float newPosY = getRandPosY();
         for (int i = 0; i < blockPerGroup; i++) {
             topBlocks[indexOfFirstGroup][i].getPosition().x = newPosX;
@@ -100,6 +100,20 @@ public class BlockManager extends SpriteManager{
         double result = rand + (MyGame.HEIGHT - visibleHeight) + (padding/2);
         result = result - (blockPerGroup * Block.BLOCK_HEIGHT);
         return (int) result;
+    }
+
+    public boolean collide(Rectangle bound){
+        int firstWave = indexOfFirstGroup;
+        int secondWave = (firstWave+1) % WAVE_COUNT;
+        for (int i = 0; i < blockPerGroup; i++) {
+            if(topBlocks[firstWave][i].getBound().overlaps(bound) ||
+                    bottomBlocks[firstWave][i].getBound().overlaps(bound)||
+                    topBlocks[secondWave][i].getBound().overlaps(bound) ||
+                    bottomBlocks[secondWave][i].getBound().overlaps(bound)){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

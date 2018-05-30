@@ -1,6 +1,7 @@
 package com.thevnkid93.game.states;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.thevnkid93.game.GameStateManager;
 import com.thevnkid93.game.MyGame;
@@ -17,6 +18,7 @@ public class PlayState extends State {
     private BackgroundManager backgroundManager;
     private BlockManager blockManager;
     private ScoreManager scoreManager;
+    private int watchingIndex;
 
     public PlayState(GameStateManager gsm){
         super(gsm);
@@ -26,6 +28,7 @@ public class PlayState extends State {
         backgroundManager = new BackgroundManager();
         blockManager = new BlockManager(Plane.PLANE_HEIGHT * 3, MyGame.HEIGHT - GroundManager.GROUND_HEIGHT*2);
         scoreManager = new ScoreManager();
+        watchingIndex = blockManager.getIndexOfFirstGroup(); // should be 0
         cam.setToOrtho(false, MyGame.WIDTH, MyGame.HEIGHT);
     }
 
@@ -45,6 +48,20 @@ public class PlayState extends State {
         decorationManager.update(dt);
         backgroundManager.update(dt);
         blockManager.update(dt);
+
+        if(blockManager.isPassed(watchingIndex, plane.getPosition().x)){
+            scoreManager.increase();
+            scoreManager.update(dt);
+            watchingIndex = blockManager.getNewWatchingIndex(watchingIndex);
+        }
+
+        if(testCollision()){
+            gsm.set(new PlayState(gsm));
+        }
+    }
+
+    private boolean testCollision(){
+        return blockManager.collide(plane.getBounds());
     }
 
     @Override

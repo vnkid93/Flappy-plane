@@ -1,5 +1,7 @@
 package com.thevnkid93.game.managers;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -19,8 +21,10 @@ public class ScoreManager extends SpriteManager {
     private Array<TextureRegion> frames;
     private int frameWidth, frameHeight, drawingWidth, drawingHeight;
     private int score;
+    private Sound coinSound;
 
     public ScoreManager(){
+        coinSound = Gdx.audio.newSound(Gdx.files.internal("coin1.wav"));
         texture = new Texture(ImgCons.NUMBERS);
         frameWidth = texture.getWidth()/FRAME_COUNT;
         frameHeight = texture.getHeight();
@@ -30,18 +34,11 @@ public class ScoreManager extends SpriteManager {
         for (int i = 0; i < FRAME_COUNT; i++) {
             frames.add(new TextureRegion(texture, i*frameWidth, 0, frameWidth, frameHeight));
         }
-        scores = new ArrayList<Score>();
-        scores.add(new Score(MyGame.WIDTH/2 - drawingWidth/2, MyGame.HEIGHT * 5 / 6, drawingWidth, drawingHeight, frames));
-
+        resetScore();
     }
 
     @Override
     public void update(float dt) {
-        // nothing
-    }
-
-    public void increase(){
-        score++;
         String scoreStr = score+"";
         if(scoreStr.length() > scores.size()){
             // expand new cipher
@@ -49,9 +46,14 @@ public class ScoreManager extends SpriteManager {
         }
         int startingX = MyGame.WIDTH/2 - (scores.size()*drawingWidth)/2;
         for (int i = 0; i < scores.size(); i++) {
-            scores.get(i).setScore(scoreStr.charAt(i));
+            scores.get(i).setScore(scoreStr.charAt(i)-'0');
             scores.get(i).getPosition().x = startingX + i*drawingWidth;
         }
+    }
+
+    public void increase(){
+        score++;
+        coinSound.play(0.2f);
     }
 
     public void resetScore(){
@@ -71,5 +73,7 @@ public class ScoreManager extends SpriteManager {
     @Override
     public void dispose() {
         texture.dispose();
+        coinSound.dispose();
     }
+
 }

@@ -1,13 +1,18 @@
 package com.thevnkid93.game.sprites;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
+import com.thevnkid93.game.managers.GroundManager;
+
+import java.util.List;
 
 public class Plane extends Sprite{
     enum PlaneState{
@@ -32,9 +37,15 @@ public class Plane extends Sprite{
     private Animation animation;
 
     private Rectangle bounds[];
+    private float boundsRelYPositions[];
+    private Sound flapSound;
+    //private ShapeRenderer shapeRenderer;
 
     public Plane(float x, float y){
         super(x, y, PLANE_WIDTH, PLANE_HEIGHT);
+        //shapeRenderer = new ShapeRenderer();
+        flapSound = Gdx.audio.newSound(Gdx.files.internal("flap.mp3"));
+
         plane = new Texture(ImgCons.PLANES);
         int planeIndex = (int) (Math.random()*planeSprites.length);
         state = PlaneState.FLYING;
@@ -51,11 +62,13 @@ public class Plane extends Sprite{
         bounds[0] = new Rectangle(18, 7, 59, 66);
         bounds[1] = new Rectangle(0, 33, 18, 29);
         bounds[2] = new Rectangle(48, 0, 20, 7);
-        bounds[3] = new Rectangle(77, 13, 11, 36);
-        double resizeRatio = (double)width/FRAME_WIDTH;
+        bounds[3] = new Rectangle(77, 7, 11, 48);
+        boundsRelYPositions = new float[bounds.length];
+        float resizeRatio = (float)width/FRAME_WIDTH;
         for (int i = 0; i < bounds.length; i++) {
-            bounds[i].x *= resizeRatio;
-            bounds[i].y *= resizeRatio;
+            boundsRelYPositions[i] = bounds[i].y * resizeRatio;
+            bounds[i].x = position.x + (bounds[i].x * resizeRatio);
+            bounds[i].y = position.y + boundsRelYPositions[i];
             bounds[i].width *= resizeRatio;
             bounds[i].height *= resizeRatio;
         }
@@ -65,14 +78,20 @@ public class Plane extends Sprite{
     @Override
     public void update(float dt) {
         animation.update(dt);
-        if(position.y >= 0){
+        if(position.y >= GroundManager.GROUND_HEIGHT*2){
             velocity.add(0, GRAVITY);
         }
         velocity.scl(dt);
         position.add(0, velocity.y);
+        for (int i = 0; i < bounds.length; i++) {
+            bounds[i].y = position.y + boundsRelYPositions[i];
+        }
 
-        if(position.y < 0){
-            position.y = 0;
+        if(position.y < GroundManager.GROUND_HEIGHT*2){
+            position.y = GroundManager.GROUND_HEIGHT*2;
+            for (int i = 0; i < bounds.length; i++) {
+                bounds[i].y = position.y + boundsRelYPositions[i];
+            }
         }
 
         velocity.scl(1/dt);
@@ -81,6 +100,7 @@ public class Plane extends Sprite{
     @Override
     public void dispose() {
         plane.dispose();
+        flapSound.dispose();
     }
 
     @Override
@@ -89,6 +109,15 @@ public class Plane extends Sprite{
         }
 
         sb.draw(animation.getFrame(), position.x, position.y, PLANE_WIDTH, PLANE_HEIGHT);
+        /*sb.end();
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(Color.RED);
+        for (int i = 0; i < bounds.length; i++) {
+            shapeRenderer.rect(bounds[i].x, bounds[i].y, bounds[i].width, bounds[i].height);
+
+        }
+        shapeRenderer.end();
+        sb.begin();*/
     }
 
 
@@ -98,6 +127,7 @@ public class Plane extends Sprite{
 
 
     public void jump(){
+        flapSound.play();
         velocity.y = JUMP_VALUE;
     }
 

@@ -28,13 +28,13 @@ public class BlockManager extends SpriteManager{
         texture = new Texture(ImgCons.BOX);
         blockPerGroup = (int)Math.ceil((visibleHeight - this.verticalSpacing) / Block.BLOCK_HEIGHT);
         generateBlocks();
+        indexOfFirstGroup = 0;
     }
 
     private void generateBlocks(){
         //TODO count block group count - depends on screen height
         topBlocks = new Block[WAVE_COUNT][blockPerGroup];
         bottomBlocks = new Block[WAVE_COUNT][blockPerGroup];
-        indexOfFirstGroup = 0;
         int startingX = MyGame.WIDTH * 3 / 2;
         for (int i = 0; i < WAVE_COUNT; i++) {
             int randY = getRandPosY();
@@ -58,6 +58,19 @@ public class BlockManager extends SpriteManager{
             repositions();
         }
 
+    }
+
+    /**
+     * Test if plane have passed those blocks
+     * @param index The index of the incoming block group
+     * @param planePosX The x position of the plane to considering as passed
+     * @return true if the plane has passed, otherwise false
+     */
+    public boolean isPassed(int index, float planePosX){
+        if(topBlocks[index][0].getPosition().x + Block.BLOCK_WIDTH/2 < planePosX){
+            return true;
+        }
+        return false;
     }
 
     private void repositions(){
@@ -102,18 +115,29 @@ public class BlockManager extends SpriteManager{
         return (int) result;
     }
 
-    public boolean collide(Rectangle bound){
+    public boolean collide(Rectangle bounds[]){
         int firstWave = indexOfFirstGroup;
         int secondWave = (firstWave+1) % WAVE_COUNT;
         for (int i = 0; i < blockPerGroup; i++) {
-            if(topBlocks[firstWave][i].getBound().overlaps(bound) ||
-                    bottomBlocks[firstWave][i].getBound().overlaps(bound)||
-                    topBlocks[secondWave][i].getBound().overlaps(bound) ||
-                    bottomBlocks[secondWave][i].getBound().overlaps(bound)){
-                return true;
+            for (int j = 0; j < bounds.length; j++) {
+                if(
+                    topBlocks[firstWave][i].getBound().overlaps(bounds[j]) ||
+                    bottomBlocks[firstWave][i].getBound().overlaps(bounds[j])||
+                    topBlocks[secondWave][i].getBound().overlaps(bounds[j]) ||
+                    bottomBlocks[secondWave][i].getBound().overlaps(bounds[j])){
+                    return true;
+                }
             }
         }
         return false;
     }
 
+    public int getIndexOfFirstGroup() {
+        return indexOfFirstGroup;
+    }
+
+    public int getNewWatchingIndex(int watchingIndex){
+        watchingIndex = (watchingIndex+1) % WAVE_COUNT;
+        return watchingIndex;
+    }
 }

@@ -9,7 +9,6 @@ public class Animation {
     private float currentFrameTime;
     private int frameCount;
     private int frame;
-    private int[][] positions;
 
     public Animation(TextureRegion region, int frameWidth, int frameHeight, float cycleTime, int[][] positions){
         frames = new Array<TextureRegion>();
@@ -17,7 +16,6 @@ public class Animation {
         for (int i = 0; i < frameCount; i++) {
             frames.add(new TextureRegion(region, positions[i][0]*frameWidth, positions[i][1]*frameHeight, frameWidth, frameHeight));
         }
-        this.positions = positions;
         maxFrameTime = cycleTime/frameCount;
         frame = 0;
     }
@@ -32,5 +30,8 @@ public class Animation {
 
     public TextureRegion getFrame(){
         return frames.get(frame);
+    }
+    public int getFrameIndex(){
+        return frame;
     }
 }

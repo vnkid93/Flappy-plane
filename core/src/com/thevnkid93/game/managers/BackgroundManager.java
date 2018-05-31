@@ -34,7 +34,7 @@ public class BackgroundManager extends SpriteManager {
 
         frames = new Array<TextureRegion>();
         for (int i = 0; i < FRAME_COUNT; i++) {
-            frames.add(new TextureRegion(texture, i * frameWidth, 0, frameWidth, texture.getHeight()));
+            frames.add(new TextureRegion(texture, i * frameWidth, 0, frameWidth, frameHeight));
         }
         int count = (int)Math.ceil((float)MyGame.WIDTH /frameWidth + 1);
         backgrounds = new Background[count];

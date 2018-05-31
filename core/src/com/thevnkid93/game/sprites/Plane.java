@@ -15,9 +15,12 @@ import com.thevnkid93.game.managers.GroundManager;
 import java.util.List;
 
 public class Plane extends Sprite{
-    enum PlaneState{
-        STOPPING, FLYING;
+    public enum PlaneState{
+        HOVERING, STOPPING, FLYING;
     }
+    public static final int DEFAULT_X = MyGame.WIDTH/4;
+    public static final int DEFAULT_Y = MyGame.HEIGHT/2;
+
     private static final int FRAME_WIDTH = 88, FRAME_HEIGHT = 73;
     private static final float ANIMATION_CYCLE_TIME = 0.3f;
     public static final int PLANE_WIDTH = MyGame.WIDTH/6;
@@ -41,14 +44,14 @@ public class Plane extends Sprite{
     private Sound flapSound;
     //private ShapeRenderer shapeRenderer;
 
-    public Plane(float x, float y){
-        super(x, y, PLANE_WIDTH, PLANE_HEIGHT);
+    public Plane(){
+        super(DEFAULT_X, DEFAULT_Y, PLANE_WIDTH, PLANE_HEIGHT);
         //shapeRenderer = new ShapeRenderer();
         flapSound = Gdx.audio.newSound(Gdx.files.internal("flap.mp3"));
 
         plane = new Texture(ImgCons.PLANES);
         int planeIndex = (int) (Math.random()*planeSprites.length);
-        state = PlaneState.FLYING;
+        state = PlaneState.HOVERING;
         velocity = new Vector2();
         animation = new Animation(new TextureRegion(plane), FRAME_WIDTH, FRAME_HEIGHT, ANIMATION_CYCLE_TIME, planeSprites[planeIndex]);
         initBounds();
@@ -77,24 +80,35 @@ public class Plane extends Sprite{
 
     @Override
     public void update(float dt) {
-        animation.update(dt);
-        if(position.y >= GroundManager.GROUND_HEIGHT*2){
-            velocity.add(0, GRAVITY);
-        }
-        velocity.scl(dt);
-        position.add(0, velocity.y);
-        for (int i = 0; i < bounds.length; i++) {
-            bounds[i].y = position.y + boundsRelYPositions[i];
-        }
+        if(state == PlaneState.HOVERING){
+            animation.update(dt);
+        }else if(state == PlaneState.FLYING){
+            animation.update(dt);
+            if(state == PlaneState.FLYING){
+                if(position.y >= GroundManager.GROUND_HEIGHT*2){
+                    velocity.add(0, GRAVITY);
+                }
+                velocity.scl(dt);
+                position.add(0, velocity.y);
+                for (int i = 0; i < bounds.length; i++) {
+                    bounds[i].y = position.y + boundsRelYPositions[i];
+                }
 
-        if(position.y < GroundManager.GROUND_HEIGHT*2){
-            position.y = GroundManager.GROUND_HEIGHT*2;
-            for (int i = 0; i < bounds.length; i++) {
-                bounds[i].y = position.y + boundsRelYPositions[i];
+                if(position.y < GroundManager.GROUND_HEIGHT*2){
+                    position.y = GroundManager.GROUND_HEIGHT*2;
+                    for (int i = 0; i < bounds.length; i++) {
+                        bounds[i].y = position.y + boundsRelYPositions[i];
+                    }
+                }
+
+                velocity.scl(1/dt);
             }
+        }else {
+            // stopping... doing nothing
         }
 
-        velocity.scl(1/dt);
+
+
     }
 
     @Override
@@ -107,17 +121,7 @@ public class Plane extends Sprite{
     public void draw(SpriteBatch sb) {
         if(state == PlaneState.FLYING){
         }
-
         sb.draw(animation.getFrame(), position.x, position.y, PLANE_WIDTH, PLANE_HEIGHT);
-        /*sb.end();
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.RED);
-        for (int i = 0; i < bounds.length; i++) {
-            shapeRenderer.rect(bounds[i].x, bounds[i].y, bounds[i].width, bounds[i].height);
-
-        }
-        shapeRenderer.end();
-        sb.begin();*/
     }
 
 
@@ -131,6 +135,9 @@ public class Plane extends Sprite{
         velocity.y = JUMP_VALUE;
     }
 
+    public void setState(PlaneState state){
+        this.state = state;
+    }
 
 
 }

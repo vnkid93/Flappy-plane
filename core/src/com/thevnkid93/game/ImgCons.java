@@ -11,4 +11,6 @@ public class ImgCons {
     public static final String BOX = "box.png";
     public static final String GROUNDS = "grounds.png";
     public static final String GROUND_DECORATIONS = "decorations.png";
+    public static final String NAVIGATION_TIPS = "navigations.png";
+    public static final String NAVIGATION_TITLES = "gamestatus.png";
 }

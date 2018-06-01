@@ -35,7 +35,7 @@ public class PlayState extends State {
         plane = new Plane();
         groundManager = new GroundManager();
         decorationManager = new DecorationManager(GroundManager.GROUND_HEIGHT*2, 5);
-        backgroundManager = new BackgroundManager();
+        backgroundManager = new BackgroundManager(true);
         blockManager = new BlockManager(Plane.PLANE_HEIGHT * 3, MyGame.HEIGHT - GroundManager.GROUND_HEIGHT*2);
         scoreManager = new ScoreManager();
         watchingIndex = blockManager.getIndexOfFirstGroup(); // should be 0

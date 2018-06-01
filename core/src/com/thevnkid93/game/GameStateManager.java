@@ -1,5 +1,6 @@
 package com.thevnkid93.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.thevnkid93.game.states.State;
 
@@ -37,7 +38,12 @@ public class GameStateManager {
      * Render the top state
      * @param sb
      */
-    public void render(SpriteBatch sb){
-        states.peek().render(sb);
+    public boolean render(SpriteBatch sb){
+        if(states.isEmpty()){
+            return false;
+        }else {
+            states.peek().render(sb);
+            return true;
+        }
     }
 }

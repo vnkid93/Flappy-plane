@@ -2,23 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a725292c-94db-44f9-9e2d-69e37709cb36" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/android/assets/board.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/MenuBoardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/badlogic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/bg1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/bg2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/bg3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/menu_buttons.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/menu_buttons.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TitleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TitleManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/BasicSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/BasicSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flappy-plane.iws" beforeDir="false" afterPath="$PROJECT_DIR$/flappy-plane.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/android/android.apk" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/android/android.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/android/android.unaligned.apk" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/android/android.unaligned.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/GameStateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/GameStateManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/ImgCons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/ImgCons.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/TitleManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/TitleManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/MyGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/MyGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/BackgroundManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/BackgroundManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/BasicSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/BasicSprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/MenuState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/MenuState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -79,29 +79,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlayState.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java">
+      <file leaf-file-name="MenuState.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="139" column="31" selection-start-line="139" selection-start-column="31" selection-end-line="139" selection-end-column="31" />
+            <state relative-caret-position="298">
+              <caret line="46" column="151" selection-start-line="46" selection-start-column="151" selection-end-line="46" selection-end-column="151" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2587#2588#0" expanded="true" />
-                <element signature="e#2649#2650#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TitleManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TitleManager.java">
+      <file leaf-file-name="MyGame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+            <state relative-caret-position="485">
+              <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1806#1807#0" expanded="true" />
-                <element signature="e#1840#1841#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BackgroundManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,22 +146,13 @@
       <file leaf-file-name="GameStateManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="502">
+              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#380#381#0" expanded="true" />
                 <element signature="e#415#416#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImgCons.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -184,7 +183,6 @@
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/BackgroundManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/SpriteManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Decoration.java" />
-        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Score.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Block.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Background.java" />
@@ -192,23 +190,24 @@
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Ground.java" />
         <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/GroundManager.java" />
-        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/ScoreManager.java" />
-        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BlockManager.java" />
-        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Animation.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Tip.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/StatusTitle.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Sprite.java" />
-        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TipsManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuBoardState.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TitleManager.java" />
-        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/MenuBoardManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/BasicSprite.java" />
+        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java" />
+        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" />
+        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java" />
+        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java" />
+        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java" />
+        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java" />
       </list>
     </option>
   </component>
@@ -335,7 +334,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Desktop">
+  <component name="RunManager" selected="Android App.Android">
     <configuration name="Android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="android" />
       <option name="DEPLOY" value="true" />
@@ -482,7 +481,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="21" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -627,16 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="102" selection-start-line="36" selection-start-column="102" selection-end-line="36" selection-end-column="102" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/State.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -644,13 +633,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -677,9 +659,6 @@
     <entry file="file://$PROJECT_DIR$/android/assets/planes.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/assets/backgrounds.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/numbers.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -688,19 +667,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/navigations.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initBounds#0;class#Plane#0" />
-            <element signature="e#4194#4195#0" expanded="true" />
-            <element signature="e#4228#4229#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BlockManager.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -787,16 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/menu_buttons.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -813,25 +769,6 @@
             <element signature="e#625#626#0" expanded="true" />
             <element signature="e#656#657#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -871,14 +808,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/android/assets/backgrounds.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-637">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initBounds#0;class#Plane#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="139" column="31" selection-start-line="139" selection-start-column="31" selection-end-line="139" selection-end-column="31" />
+        <state relative-caret-position="493">
+          <caret line="62" column="107" selection-start-line="61" selection-start-column="16" selection-end-line="62" selection-end-column="107" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2587#2588#0" expanded="true" />
             <element signature="e#2649#2650#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="46" column="151" selection-start-line="46" selection-start-column="151" selection-end-line="46" selection-end-column="151" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

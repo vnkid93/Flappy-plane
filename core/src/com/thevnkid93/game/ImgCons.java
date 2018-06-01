@@ -15,4 +15,5 @@ public class ImgCons {
     public static final String NAVIGATION_TITLES = "gamestatus.png";
     public static final String MENU_BTNS = "menu_buttons.png";
     public static final String BOARD = "board.png";
+    public static final String TITLE = "title.png";
 }

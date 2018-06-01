@@ -21,7 +21,7 @@ public class BackgroundManager extends SpriteManager {
     private int firstBackgroundIndex;
 
 
-    public BackgroundManager(){
+    public BackgroundManager(boolean random){
         firstBackgroundIndex = 0;
         texture = new Texture(ImgCons.BACKGROUNDS);
         // true image size
@@ -41,7 +41,14 @@ public class BackgroundManager extends SpriteManager {
         for (int i = 0; i < backgrounds.length; i++) {
             backgrounds[i] = new Background(i*drawingWidth, drawingWidth, drawingHeight, frames.get(0));
         }
-        randBackground();
+        if(random){
+            randBackground();
+        }else {
+            TextureRegion newBackground = frames.get(2);
+            for (int i = 0; i < backgrounds.length; i++) {
+                backgrounds[i].setFrame(newBackground);
+            }
+        }
     }
 
     @Override

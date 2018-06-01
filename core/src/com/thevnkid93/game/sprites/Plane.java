@@ -42,7 +42,6 @@ public class Plane extends Sprite{
     private Rectangle bounds[];
     private float boundsRelYPositions[];
     private Sound flapSound;
-    //private ShapeRenderer shapeRenderer;
 
     public Plane(){
         super(DEFAULT_X, DEFAULT_Y, PLANE_WIDTH, PLANE_HEIGHT);

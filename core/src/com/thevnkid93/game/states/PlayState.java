@@ -164,7 +164,8 @@ public class PlayState extends State {
     }
 
     private boolean testCollision(){
-        return blockManager.collide(plane.getBounds());
+        return blockManager.collide(plane.getBounds()) ||
+                plane.getPosition().y < GroundManager.GROUND_HEIGHT*2;
     }
 
     @Override

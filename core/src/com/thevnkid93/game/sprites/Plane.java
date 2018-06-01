@@ -84,23 +84,16 @@ public class Plane extends Sprite{
         }else if(state == PlaneState.FLYING){
             animation.update(dt);
             if(state == PlaneState.FLYING){
-                if(position.y >= GroundManager.GROUND_HEIGHT*2){
-                    velocity.add(0, GRAVITY);
-                }
+                velocity.add(0, GRAVITY);
+
                 velocity.scl(dt);
                 position.add(0, velocity.y);
                 for (int i = 0; i < bounds.length; i++) {
                     bounds[i].y = position.y + boundsRelYPositions[i];
                 }
 
-                if(position.y < GroundManager.GROUND_HEIGHT*2){
-                    position.y = GroundManager.GROUND_HEIGHT*2;
-                    for (int i = 0; i < bounds.length; i++) {
-                        bounds[i].y = position.y + boundsRelYPositions[i];
-                    }
-                }
-
                 velocity.scl(1/dt);
+
             }
         }else {
             // stopping... doing nothing
@@ -130,8 +123,10 @@ public class Plane extends Sprite{
 
 
     public void jump(){
-        flapSound.play();
-        velocity.y = JUMP_VALUE;
+        if(getPosition().y + height < MyGame.HEIGHT){
+            flapSound.play();
+            velocity.y = JUMP_VALUE;
+        }
     }
 
     public void setState(PlaneState state){

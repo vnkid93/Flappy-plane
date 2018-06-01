@@ -2,29 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a725292c-94db-44f9-9e2d-69e37709cb36" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/android/assets/click.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/click_sound.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/game_over.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/score_title.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/MenuBoardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/MenuBoardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/ScoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/ScoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flappy-plane.iws" beforeDir="false" afterPath="$PROJECT_DIR$/flappy-plane.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/ImgCons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/ImgCons.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/MyGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/MyGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/MenuBoardManager$Button.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/MenuBoardManager$Button.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/MenuBoardManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/MenuBoardManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/ScoreManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/ScoreManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Sprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Sprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/MenuState$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/MenuState$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/MenuState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/MenuState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Plane.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -88,8 +69,8 @@
       <file leaf-file-name="PlayState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="147" column="65" selection-start-line="147" selection-start-column="65" selection-end-line="147" selection-end-column="65" />
+            <state relative-caret-position="558">
+              <caret line="167" column="69" selection-start-line="167" selection-start-column="69" selection-end-line="167" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#touchUp#0;class#PlayState#0" />
@@ -132,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyGame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+            <state relative-caret-position="354">
+              <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,14 +153,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Plane.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Plane.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="87" column="43" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="43" />
+            <state relative-caret-position="536">
+              <caret line="126" column="29" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#initBounds#0;class#Plane#0" />
+                <element signature="e#4240#4241#0" expanded="true" />
+                <element signature="e#4269#4270#0" expanded="true" />
+                <element signature="e#4405#4406#0" expanded="true" />
+                <element signature="e#4439#4440#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -251,17 +236,17 @@
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TitleManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/BasicSprite.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java" />
-        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyInputProcessor.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/MenuState.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Score.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Sprite.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/ScoreManager.java" />
-        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/MenuBoardManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java" />
+        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java" />
+        <option value="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" />
       </list>
     </option>
   </component>
@@ -833,17 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="87" column="43" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initBounds#0;class#Plane#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -860,20 +834,6 @@
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="147" column="65" selection-start-line="147" selection-start-column="65" selection-end-line="147" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#touchUp#0;class#PlayState#0" />
-            <element signature="method#handleInput#0;class#PlayState#0" />
-            <element signature="method#render#0;class#PlayState#0" />
-            <element signature="method#dispose#0;class#PlayState#0" />
           </folding>
         </state>
       </provider>
@@ -921,10 +881,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        <state relative-caret-position="354">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="167" column="69" selection-start-line="167" selection-start-column="69" selection-end-line="167" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#touchUp#0;class#PlayState#0" />
+            <element signature="method#handleInput#0;class#PlayState#0" />
+            <element signature="method#render#0;class#PlayState#0" />
+            <element signature="method#dispose#0;class#PlayState#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="126" column="29" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initBounds#0;class#Plane#0" />
+            <element signature="e#4240#4241#0" expanded="true" />
+            <element signature="e#4269#4270#0" expanded="true" />
+            <element signature="e#4405#4406#0" expanded="true" />
+            <element signature="e#4439#4440#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,11 +1,13 @@
 package com.thevnkid93.game.states;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.thevnkid93.game.GameStateManager;
 import com.thevnkid93.game.MyGame;
+import com.thevnkid93.game.MyInputProcessor;
 import com.thevnkid93.game.managers.*;
 import com.thevnkid93.game.sprites.Block;
 import com.thevnkid93.game.sprites.Ground;
@@ -29,6 +31,8 @@ public class PlayState extends State {
     private int watchingIndex;
 
     private Vector3 touchPoint;
+    private InputProcessor oldInputProcessor;
+    private boolean isTouching;
 
     public PlayState(GameStateManager gsm){
         super(gsm);
@@ -45,6 +49,54 @@ public class PlayState extends State {
         gameState = GameState.PAUSING;
         cam.setToOrtho(false, MyGame.WIDTH, MyGame.HEIGHT);
         touchPoint = new Vector3();
+
+        oldInputProcessor = Gdx.input.getInputProcessor();
+        Gdx.input.setInputProcessor(new MyInputProcessor() {
+            @Override
+            public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+                if(gameState == GameState.ENDING){
+                    isTouching = true;
+                    cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+                    PlayState.this.touchDown(touchPoint.x, touchPoint.y);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+                if(gameState == GameState.ENDING){
+                    if(isTouching){
+                        cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+                        PlayState.this.touchUp(touchPoint.x, touchPoint.y);
+                    }
+                    isTouching = false;
+                }
+                return true;
+            }
+        });
+        isTouching = false;
+    }
+
+    private void touchDown(float x, float y){
+        MenuBoardManager.Button clickResult = menuBoardManager.click(x, y);
+        if(clickResult == MenuBoardManager.Button.PLAY_BTN){
+            menuBoardManager.clickPlayBtn();
+        }else if(clickResult == MenuBoardManager.Button.QUIT_BTN){
+            menuBoardManager.clickQuitBtn();
+        }
+    }
+
+    private void touchUp(float x, float y){
+        MenuBoardManager.Button clickResult = menuBoardManager.click(x, y);
+        if(clickResult == MenuBoardManager.Button.PLAY_BTN){
+            gsm.set(new PlayState(gsm));
+            dispose();
+        }else if(clickResult == MenuBoardManager.Button.QUIT_BTN){
+            gsm.set(new MenuState(gsm));
+            dispose();
+        }
+        menuBoardManager.releaseQuitBtn();
+        menuBoardManager.releasePlayBtn();
     }
 
 
@@ -59,15 +111,7 @@ public class PlayState extends State {
             }else if(gameState == GameState.PLAYING){
                 plane.jump();
             }else {
-                cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
-                MenuBoardManager.Button clickedResult = menuBoardManager.click(touchPoint.x, touchPoint.y);
-                if(clickedResult == MenuBoardManager.Button.PLAY_BTN){
-                    gsm.set(new PlayState(gsm));
-                    dispose();
-                }else if(clickedResult == MenuBoardManager.Button.QUIT_BTN){
-                    gsm.set(new MenuState(gsm));
-                    dispose();
-                }
+                // nothing
             }
 
 

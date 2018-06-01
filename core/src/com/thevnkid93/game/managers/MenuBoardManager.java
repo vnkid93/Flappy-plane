@@ -1,11 +1,14 @@
 package com.thevnkid93.game.managers;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
+import com.thevnkid93.game.MyInputProcessor;
 import com.thevnkid93.game.sprites.BasicSprite;
 
 public class MenuBoardManager extends SpriteManager {
@@ -16,6 +19,7 @@ public class MenuBoardManager extends SpriteManager {
     private static final int BTN_FRAME_COUNT = 6;
     private BasicSprite board, playBtn, quitBtn;
     private Texture textureBtn, boardTexture;
+
 
 
     private Array<TextureRegion> btnFrames;
@@ -29,7 +33,7 @@ public class MenuBoardManager extends SpriteManager {
         textureBtn = new Texture(ImgCons.MENU_BTNS);
         int btnFrameWidth = textureBtn.getWidth()/6;
         int btnFrameHeight = textureBtn.getHeight();
-        int drawingBtnWidth = MyGame.WIDTH/4;
+        int drawingBtnWidth = MyGame.WIDTH/2;
         int drawingBtnHeight = btnFrameHeight * drawingBtnWidth / btnFrameWidth;
 
         btnFrames = new Array<TextureRegion>();
@@ -40,6 +44,8 @@ public class MenuBoardManager extends SpriteManager {
         int padding = drawingBtnHeight/4;
         playBtn = new BasicSprite(MyGame.WIDTH/2 - drawingBtnWidth/2, MyGame.HEIGHT/2 - padding - drawingBtnHeight, drawingBtnWidth, drawingBtnHeight, btnFrames.get(0));
         quitBtn = new BasicSprite(MyGame.WIDTH/2 - drawingBtnWidth/2, MyGame.HEIGHT/2 - 2*drawingBtnHeight - 2*padding, drawingBtnWidth, drawingBtnHeight, btnFrames.get(4));
+
+
     }
 
     @Override
@@ -48,7 +54,21 @@ public class MenuBoardManager extends SpriteManager {
     }
 
     public void clickPlayBtn(){
+        playBtn.setFrame(btnFrames.get(1));
+    }
 
+    public void releasePlayBtn(){
+        playBtn.setFrame(btnFrames.get(0));
+
+    }
+
+    public void clickQuitBtn(){
+        quitBtn.setFrame(btnFrames.get(5));
+
+    }
+
+    public void releaseQuitBtn(){
+        quitBtn.setFrame(btnFrames.get(4));
     }
 
     @Override

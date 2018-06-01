@@ -30,8 +30,13 @@ public class GameStateManager {
      * Update for the state on the top
      * @param dt
      */
-    public void update(float dt){
-        states.peek().update(dt);
+    public boolean update(float dt){
+        if(states.isEmpty()){
+            return false;
+        }else {
+            states.peek().update(dt);
+            return true;
+        }
     }
 
     /**

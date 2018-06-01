@@ -33,8 +33,9 @@ public class MyGame extends ApplicationAdapter {
 	@Override
 	public void render () {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // wiping screen before rendering
-		gsm.update(Gdx.graphics.getDeltaTime());
-		if(!gsm.render(batch)){
+
+		if(!gsm.update(Gdx.graphics.getDeltaTime()) ||
+				!gsm.render(batch)){
 			dispose();
 			Gdx.app.exit();
 		}

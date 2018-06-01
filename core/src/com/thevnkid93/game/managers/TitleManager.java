@@ -34,7 +34,7 @@ public class TitleManager extends SpriteManager {
         drawingHeight = (int) (frameHeight * drawingWidth / frameWidth);
 
         sprite = new BasicSprite(MyGame.WIDTH/2 - drawingWidth/2, MyGame.HEIGHT * 5 / 6, drawingWidth, drawingHeight, frames.get(0));
-        title = Title.NOTHING;
+        title = Title.GET_READY;
     }
     @Override
     public void update(float dt) {
@@ -43,10 +43,10 @@ public class TitleManager extends SpriteManager {
 
     @Override
     public void draw(SpriteBatch sb) {
-        sprite.setFrame(frames.get(0));
         if(title == Title.GET_READY){
+            sprite.setFrame(frames.get(0));
         }else {
-            //sprite.setFrame(frames.get(1));
+            sprite.setFrame(frames.get(1));
         }
         sprite.draw(sb);
     }

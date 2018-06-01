@@ -3,6 +3,7 @@ package com.thevnkid93.game.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 import com.thevnkid93.game.GameStateManager;
 import com.thevnkid93.game.MyGame;
 import com.thevnkid93.game.managers.*;
@@ -24,7 +25,10 @@ public class PlayState extends State {
     private ScoreManager scoreManager;
     private TipsManager tipsManager;
     private TitleManager titleManager;
+    private MenuBoardManager menuBoardManager;
     private int watchingIndex;
+
+    private Vector3 touchPoint;
 
     public PlayState(GameStateManager gsm){
         super(gsm);
@@ -37,8 +41,10 @@ public class PlayState extends State {
         watchingIndex = blockManager.getIndexOfFirstGroup(); // should be 0
         tipsManager = new TipsManager();
         titleManager = new TitleManager();
+        menuBoardManager = new MenuBoardManager();
         gameState = GameState.PAUSING;
         cam.setToOrtho(false, MyGame.WIDTH, MyGame.HEIGHT);
+        touchPoint = new Vector3();
     }
 
 
@@ -53,7 +59,15 @@ public class PlayState extends State {
             }else if(gameState == GameState.PLAYING){
                 plane.jump();
             }else {
-                // dont jump
+                cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+                MenuBoardManager.Button clickedResult = menuBoardManager.click(touchPoint.x, touchPoint.y);
+                if(clickedResult == MenuBoardManager.Button.PLAY_BTN){
+                    gsm.set(new PlayState(gsm));
+                    dispose();
+                }else if(clickedResult == MenuBoardManager.Button.QUIT_BTN){
+                    gsm.set(new MenuState(gsm));
+                    dispose();
+                }
             }
 
 
@@ -78,7 +92,7 @@ public class PlayState extends State {
             }
             if(testCollision()){
                 titleManager.setTitle(TitleManager.Title.GAME_OVER);
-                gsm.set(new PlayState(gsm));
+                gameState = GameState.ENDING;
             }
 
 
@@ -90,11 +104,9 @@ public class PlayState extends State {
             tipsManager.update(dt);
         }else {
             // gameover... nothing move
+            //menuBoardManager.update(dt);
 
         }
-
-
-
 
     }
 
@@ -121,7 +133,10 @@ public class PlayState extends State {
             tipsManager.draw(sb);
             titleManager.draw(sb);
         }else{
+            blockManager.draw(sb);
             groundManager.draw(sb);
+            decorationManager.draw(sb);
+            menuBoardManager.draw(sb);
             titleManager.draw(sb);
         }
 
@@ -134,5 +149,10 @@ public class PlayState extends State {
         groundManager.dispose();
         backgroundManager.dispose();
         decorationManager.dispose();
+        titleManager.dispose();
+        tipsManager.dispose();
+        blockManager.dispose();
+        scoreManager.dispose();
+        menuBoardManager.dispose();
     }
 }

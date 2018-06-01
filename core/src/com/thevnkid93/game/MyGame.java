@@ -26,7 +26,7 @@ public class MyGame extends ApplicationAdapter {
 		music.setLooping(true);
 		music.setVolume(.3f);
 		music.play();
-		Gdx.gl.glClearColor(1, 0, 0, 1); // clearing
+		Gdx.gl.glClearColor(0, 0, 0, 1); // clearing
 		gsm.push(new MenuState(gsm));
 	}
 

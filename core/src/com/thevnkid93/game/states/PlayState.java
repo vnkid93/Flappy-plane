@@ -3,9 +3,11 @@ package com.thevnkid93.game.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.thevnkid93.game.GameStateManager;
+import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
 import com.thevnkid93.game.MyInputProcessor;
 import com.thevnkid93.game.managers.*;
@@ -31,17 +33,19 @@ public class PlayState extends State {
     private int watchingIndex;
 
     private Vector3 touchPoint;
-    private InputProcessor oldInputProcessor;
     private boolean isTouching;
+
+    private Sound clickSound;
 
     public PlayState(GameStateManager gsm){
         super(gsm);
+        clickSound = Gdx.audio.newSound(Gdx.files.internal("click.mp3"));
         plane = new Plane();
         groundManager = new GroundManager();
         decorationManager = new DecorationManager(GroundManager.GROUND_HEIGHT*2, 5);
         backgroundManager = new BackgroundManager(true);
         blockManager = new BlockManager(Plane.PLANE_HEIGHT * 3, MyGame.HEIGHT - GroundManager.GROUND_HEIGHT*2);
-        scoreManager = new ScoreManager();
+        scoreManager = new ScoreManager(Plane.PLANE_WIDTH/3);
         watchingIndex = blockManager.getIndexOfFirstGroup(); // should be 0
         tipsManager = new TipsManager();
         titleManager = new TitleManager();
@@ -50,7 +54,6 @@ public class PlayState extends State {
         cam.setToOrtho(false, MyGame.WIDTH, MyGame.HEIGHT);
         touchPoint = new Vector3();
 
-        oldInputProcessor = Gdx.input.getInputProcessor();
         Gdx.input.setInputProcessor(new MyInputProcessor() {
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
@@ -80,8 +83,10 @@ public class PlayState extends State {
     private void touchDown(float x, float y){
         MenuBoardManager.Button clickResult = menuBoardManager.click(x, y);
         if(clickResult == MenuBoardManager.Button.PLAY_BTN){
+            clickSound.play();
             menuBoardManager.clickPlayBtn();
         }else if(clickResult == MenuBoardManager.Button.QUIT_BTN){
+            clickSound.play();
             menuBoardManager.clickQuitBtn();
         }
     }
@@ -137,6 +142,10 @@ public class PlayState extends State {
             if(testCollision()){
                 titleManager.setTitle(TitleManager.Title.GAME_OVER);
                 gameState = GameState.ENDING;
+                //menuBoardManager.setScore(scoreManager.getScore());
+                menuBoardManager.setAppearing(true);
+
+                menuBoardManager.setScore(scoreManager.getScore());
             }
 
 
@@ -148,7 +157,7 @@ public class PlayState extends State {
             tipsManager.update(dt);
         }else {
             // gameover... nothing move
-            //menuBoardManager.update(dt);
+            menuBoardManager.update(dt);
 
         }
 
@@ -198,5 +207,6 @@ public class PlayState extends State {
         blockManager.dispose();
         scoreManager.dispose();
         menuBoardManager.dispose();
+        clickSound.dispose();
     }
 }

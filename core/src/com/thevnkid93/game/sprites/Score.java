@@ -33,5 +33,6 @@ public class Score extends Sprite {
     public void setScore(int score){
         this.score = score;
     }
+
 }
 

@@ -29,6 +29,14 @@ public abstract class Sprite {
         return height;
     }
 
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     public abstract void dispose();
     public abstract void draw(SpriteBatch sb);
 }

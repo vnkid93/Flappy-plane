@@ -16,4 +16,5 @@ public class ImgCons {
     public static final String MENU_BTNS = "menu_buttons.png";
     public static final String BOARD = "board.png";
     public static final String TITLE = "title.png";
+    public static final String SCORE_TITLE = "score_title.png";
 }

@@ -2,6 +2,7 @@ package com.thevnkid93.game.states;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -36,13 +37,15 @@ public class MenuState extends State {
     private BitmapFont font;
     private GlyphLayout author;
     private MyInputProcessor inputProcessor;
-    private InputProcessor oldProcessor;
     private boolean isTouching;
+    private Sound clickSound;
+
 
 
 
     public MenuState(GameStateManager gsm){
         super(gsm);
+        clickSound = Gdx.audio.newSound(Gdx.files.internal("click.mp3"));
         backgroundManager = new BackgroundManager(false);
         title = new Texture(ImgCons.TITLE);
         titleWidth = MyGame.WIDTH *7/8;
@@ -62,17 +65,18 @@ public class MenuState extends State {
         inputProcessor = new MyInputProcessor() {
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-                MenuState.this.touchDown(screenX, screenY);
+                cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+                MenuState.this.touchDown();
                 return true;
             }
 
             @Override
             public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-                MenuState.this.touchUp(screenX, screenY);
+                cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+                MenuState.this.touchUp();
                 return true;
             }
         };
-        oldProcessor = Gdx.input.getInputProcessor();
         Gdx.input.setInputProcessor(inputProcessor);
         isTouching = false;
     }
@@ -100,29 +104,27 @@ public class MenuState extends State {
     }
 
 
-    public void touchDown(float x, float y){
+    public void touchDown(){
         isTouching = true;
-        cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
         if(playBtnBound.contains(touchPoint.x, touchPoint.y)){
             playBtnIndex = 1;
+            clickSound.play();
         }else if(quitBtnBound.contains(touchPoint.x, touchPoint.y)){
             quitBtnIndex = 1;
+            clickSound.play();
         }else {
             playBtnIndex = quitBtnIndex = 0;
         }
     }
 
-    public void touchUp(float x, float y){
+    public void touchUp(){
         if(isTouching){
-            cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
             playBtnIndex = 0;
             quitBtnIndex = 0;
             if(playBtnBound.contains(touchPoint.x, touchPoint.y)){
-                Gdx.input.setInputProcessor(oldProcessor);
                 gsm.set(new PlayState(gsm));
                 dispose();
             }else if(quitBtnBound.contains(touchPoint.x, touchPoint.y)){
-                Gdx.input.setInputProcessor(oldProcessor);
                 gsm.pop();
                 dispose();
             }
@@ -132,18 +134,6 @@ public class MenuState extends State {
 
     @Override
     public void handleInput() {
-        /*if(Gdx.input.justTouched()){
-
-            cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
-            if(playBtnBound.contains(touchPoint.x, touchPoint.y)){
-                gsm.set(new PlayState(gsm));
-                dispose();
-            }else if(quitBtnBound.contains(touchPoint.x, touchPoint.y)){
-                gsm.pop();
-                dispose();
-            }
-
-        }*/
     }
 
     @Override
@@ -196,6 +186,7 @@ public class MenuState extends State {
             planes[i].dispose();
         }
         title.dispose();
+        clickSound.dispose();
     }
 
 

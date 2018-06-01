@@ -23,12 +23,12 @@ public class ScoreManager extends SpriteManager {
     private int score;
     private Sound coinSound;
 
-    public ScoreManager(){
+    public ScoreManager(int cipherWidth){
         coinSound = Gdx.audio.newSound(Gdx.files.internal("coin1.wav"));
         texture = new Texture(ImgCons.NUMBERS);
         frameWidth = texture.getWidth()/FRAME_COUNT;
         frameHeight = texture.getHeight();
-        drawingWidth = Plane.PLANE_WIDTH/3;
+        drawingWidth = cipherWidth;
         drawingHeight = frameHeight * drawingWidth/frameWidth;
         frames = new Array<TextureRegion>();
         for (int i = 0; i < FRAME_COUNT; i++) {
@@ -49,6 +49,12 @@ public class ScoreManager extends SpriteManager {
             scores.get(i).setScore(scoreStr.charAt(i)-'0');
             scores.get(i).getPosition().x = startingX + i*drawingWidth;
         }
+    }
+
+    public void setCipherWidth(int width){
+        this.drawingWidth = width;
+        this.drawingHeight = frameHeight * drawingWidth / frameWidth;
+        update(0);
     }
 
     public void increase(){
@@ -76,4 +82,11 @@ public class ScoreManager extends SpriteManager {
         coinSound.dispose();
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public List<Score> getScores() {
+        return scores;
+    }
 }

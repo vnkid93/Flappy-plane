@@ -24,7 +24,7 @@ public class MenuBoardManager extends SpriteManager {
     private BasicSprite board, playBtn, quitBtn, scoreTitle;
     private Texture textureBtn, boardTexture, numberTexture, scoreTitleTexture;
     private Array<TextureRegion> btnFrames;
-    private boolean appearing;
+    private boolean appearing; // if the board will appear
     private Vector2 fallingVelocity;
 
     private Sound gameOverSound;
@@ -36,6 +36,9 @@ public class MenuBoardManager extends SpriteManager {
     private List<Score> scoreList;
 
 
+    /**
+     * Constructor for menu board manager class
+     */
     public MenuBoardManager(){
         gameOverSound = Gdx.audio.newSound(Gdx.files.internal("game_over.mp3"));
         boardTexture = new Texture(ImgCons.BOARD);
@@ -63,6 +66,9 @@ public class MenuBoardManager extends SpriteManager {
         appearing = false;
     }
 
+    /**
+     * Init method for buttons
+     */
     private void initButtons(){
         textureBtn = new Texture(ImgCons.MENU_BTNS);
         int btnFrameWidth = textureBtn.getWidth()/6;
@@ -81,6 +87,10 @@ public class MenuBoardManager extends SpriteManager {
 
     }
 
+    /**
+     * Set score when the game is over
+     * @param score the players score
+     */
     public void setScore(int score) {
         gameOverSound.play(.1f);
         int drawingWidth = board.getWidth()/6;
@@ -97,6 +107,10 @@ public class MenuBoardManager extends SpriteManager {
         }
     }
 
+    /**
+     * Updating menu falling animation.
+     * @param dt the changing time
+     */
     @Override
     public void update(float dt) {
         if(appearing){
@@ -122,28 +136,38 @@ public class MenuBoardManager extends SpriteManager {
                     s.getPosition().y = board.getPosition().y + board.getHeight()/2 - s.getHeight();
                 }
                 appearing = false;
-
-                // show score
             }
 
             fallingVelocity.scl(1/dt);
         }
     }
 
+    /**
+     * Method that is called when the play button is touched
+     */
     public void clickPlayBtn(){
         playBtn.setFrame(btnFrames.get(1));
     }
 
+    /**
+     * Method that is called when the hold play button was released
+     */
     public void releasePlayBtn(){
         playBtn.setFrame(btnFrames.get(0));
 
     }
 
+    /**
+     * Method that is called when the quit button was clicked
+     */
     public void clickQuitBtn(){
         quitBtn.setFrame(btnFrames.get(5));
 
     }
 
+    /**
+     * Method that is called when the hold quit button was released
+     */
     public void releaseQuitBtn(){
         quitBtn.setFrame(btnFrames.get(4));
     }
@@ -169,6 +193,12 @@ public class MenuBoardManager extends SpriteManager {
         scoreTitleTexture.dispose();
     }
 
+    /**
+     * Testing touchpoints
+     * @param x position of the touchpoint
+     * @param y position of the touchpoint
+     * @return the touched button or Button.NOTHING
+     */
     public Button click(float x, float y){
         if(playBtn.collide(x, y)){
             return Button.PLAY_BTN;
@@ -179,6 +209,10 @@ public class MenuBoardManager extends SpriteManager {
         }
     }
 
+    /**
+     * Setting appearing attribute
+     * @param appearing true if menu board is going to appear
+     */
     public void setAppearing(boolean appearing) {
         this.appearing = appearing;
     }

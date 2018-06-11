@@ -1,38 +1,26 @@
 package com.thevnkid93.game.sprites;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 
+/**
+ * The sprite object for undefined/generic object
+ */
 public class BasicSprite extends Sprite {
 
-    private TextureRegion frame;
-
-
+    /**
+     * @see Sprite#Sprite(float, float, int, int, TextureRegion)
+     */
     public BasicSprite(float x, float y, int width, int height, TextureRegion frame) {
-        super(x, y, width, height);
-        this.frame = frame;
+        super(x, y, width, height, frame);
     }
 
-    @Override
-    public void update(float dt) {
-        // nothing to do here
-    }
-
-    @Override
-    public void dispose() {
-        // nothing here either
-    }
-
-    @Override
-    public void draw(SpriteBatch sb) {
-        sb.draw(frame, position.x, position.y, width, height);
-    }
-
-    public void setFrame(TextureRegion frame) {
-        this.frame = frame;
-    }
-
+    /**
+     * Method for collision testing.
+     * @param x the position of the testing point
+     * @param y the posision of the testing point
+     * @return true if there is any collision, otherwise false.
+     */
     public boolean collide(float x, float y){
         Rectangle r = new Rectangle(position.x, position.y, width, height);
         return r.contains(x, y);

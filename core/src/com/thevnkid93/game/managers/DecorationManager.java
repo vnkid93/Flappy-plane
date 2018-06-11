@@ -10,6 +10,9 @@ import com.thevnkid93.game.sprites.Decoration;
 import com.thevnkid93.game.sprites.Ground;
 import com.thevnkid93.game.sprites.Plane;
 
+/**
+ * Decoration manager for drawing and scrolling trees, rocks and other decoration objects
+ */
 public class DecorationManager extends SpriteManager{
 
     public static final int DECORATION_SCROLL_SPEED = GroundManager.SCROLLING_SPEED;
@@ -41,6 +44,10 @@ public class DecorationManager extends SpriteManager{
         texture.dispose();
     }
 
+    /**
+     * Scrolling objects
+     * @param dt the changing time
+     */
     @Override
     public void update(float dt) {
         for (int i = 0; i < decorations.length; i++) {
@@ -59,14 +66,26 @@ public class DecorationManager extends SpriteManager{
         }
     }
 
+    /**
+     * Get random object to draw
+     * @return TextureRegion of the new object
+     */
     private TextureRegion getRandomTexture(){
         return textures.get((int) (Math.random()*DECORATION_COUNT));
     }
 
+    /**
+     * Changing the sprite sheet. Drawing random object
+     * @param index the object to be change
+     */
     private void changeDecoration(int index){
         decorations[index].setFrame(getRandomTexture());
     }
 
+    /**
+     * Repositioning decorationg after they got out of the screen
+     * @param index the object to repositioning
+     */
     private void reposition(int index){
         decorations[index].getPosition().x = (float)((Math.random()*4*MyGame.WIDTH) + MyGame.WIDTH*2);
     }

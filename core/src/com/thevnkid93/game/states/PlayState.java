@@ -1,55 +1,57 @@
 package com.thevnkid93.game.states;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
-import com.thevnkid93.game.GameStateManager;
-import com.thevnkid93.game.ImgCons;
-import com.thevnkid93.game.MyGame;
-import com.thevnkid93.game.MyInputProcessor;
+import com.thevnkid93.game.*;
 import com.thevnkid93.game.managers.*;
-import com.thevnkid93.game.sprites.Block;
-import com.thevnkid93.game.sprites.Ground;
 import com.thevnkid93.game.sprites.Plane;
 
 public class PlayState extends State {
+    /**
+     * Game state
+     */
     enum GameState{
         PAUSING, PLAYING, ENDING;
     }
+
     public static GameState gameState;
 
-    private Plane plane;
-    private GroundManager groundManager;
-    private DecorationManager decorationManager;
-    private BackgroundManager backgroundManager;
-    private BlockManager blockManager;
-    private ScoreManager scoreManager;
-    private TipsManager tipsManager;
-    private TitleManager titleManager;
-    private MenuBoardManager menuBoardManager;
-    private int watchingIndex;
+    private Plane plane; // plane object
+    private GroundManager groundManager; // ground manager
+    private DecorationManager decorationManager; // manager of trees, rocks, etc.
+    private BackgroundManager backgroundManager; // background manager
+    private BlockManager blockManager; // blocks/boxes manager
+    private ScoreManager scoreManager; // score number manager
+    private TipsManager tipsManager; // tool tip manager
+    private TitleManager titleManager; // title drawing manager
+    private MenuBoardManager menuBoardManager; // score board manager
+    private Sound clickSound;
 
+    // The index of the incoming block group. For collision testing
+    private int incomingBlockIndex;
+
+    // Contain touch point - to test where the finger has touched
     private Vector3 touchPoint;
+    // true if the finger isn still down (not released)
     private boolean isTouching;
 
-    private Sound clickSound;
 
     public PlayState(GameStateManager gsm){
         super(gsm);
-        clickSound = Gdx.audio.newSound(Gdx.files.internal("click.mp3"));
+        clickSound = Gdx.audio.newSound(Gdx.files.internal(SoundCons.CLICK_SOUND));
         plane = new Plane();
         groundManager = new GroundManager();
         decorationManager = new DecorationManager(GroundManager.GROUND_HEIGHT*2, 5);
         backgroundManager = new BackgroundManager(true);
-        blockManager = new BlockManager(Plane.PLANE_HEIGHT * 3, MyGame.HEIGHT - GroundManager.GROUND_HEIGHT*2);
+        blockManager = new BlockManager(MyGame.HEIGHT - GroundManager.GROUND_HEIGHT*2);
         scoreManager = new ScoreManager(Plane.PLANE_WIDTH/3);
-        watchingIndex = blockManager.getIndexOfFirstGroup(); // should be 0
         tipsManager = new TipsManager();
         titleManager = new TitleManager();
         menuBoardManager = new MenuBoardManager();
+
+        incomingBlockIndex = blockManager.getIndexOfFirstGroup(); // should be 0
         gameState = GameState.PAUSING;
         cam.setToOrtho(false, MyGame.WIDTH, MyGame.HEIGHT);
         touchPoint = new Vector3();
@@ -80,6 +82,11 @@ public class PlayState extends State {
         isTouching = false;
     }
 
+    /**
+     * Method is called when screen was touched
+     * @param x position of touchpoint
+     * @param y position of touchpoint
+     */
     private void touchDown(float x, float y){
         MenuBoardManager.Button clickResult = menuBoardManager.click(x, y);
         if(clickResult == MenuBoardManager.Button.PLAY_BTN){
@@ -90,7 +97,11 @@ public class PlayState extends State {
             menuBoardManager.clickQuitBtn();
         }
     }
-
+    /**
+     * Method is called when the touched screen was released
+     * @param x position of touchpoint
+     * @param y position of touchpoint
+     */
     private void touchUp(float x, float y){
         MenuBoardManager.Button clickResult = menuBoardManager.click(x, y);
         if(clickResult == MenuBoardManager.Button.PLAY_BTN){
@@ -104,7 +115,9 @@ public class PlayState extends State {
         menuBoardManager.releasePlayBtn();
     }
 
-
+    /**
+     * A simple touch listener
+     */
     @Override
     protected void handleInput() {
         if(Gdx.input.justTouched()){
@@ -115,13 +128,8 @@ public class PlayState extends State {
                 titleManager.setTitle(TitleManager.Title.NOTHING);
             }else if(gameState == GameState.PLAYING){
                 plane.jump();
-            }else {
-                // nothing
             }
-
-
         }
-
     }
 
     @Override
@@ -134,10 +142,10 @@ public class PlayState extends State {
             backgroundManager.update(dt);
             blockManager.update(dt);
 
-            if(blockManager.isPassed(watchingIndex, plane.getPosition().x)){
+            if(blockManager.isPassed(incomingBlockIndex, plane.getPosition().x)){
                 scoreManager.increase();
                 scoreManager.update(dt);
-                watchingIndex = blockManager.getNewWatchingIndex(watchingIndex);
+                incomingBlockIndex = blockManager.getNewWatchingIndex(incomingBlockIndex);
             }
             if(testCollision()){
                 titleManager.setTitle(TitleManager.Title.GAME_OVER);
@@ -197,6 +205,9 @@ public class PlayState extends State {
         sb.end();
     }
 
+    /**
+     * Cleaning all texture and sounds and calling managers dispose methods
+     */
     @Override
     public void dispose() {
         plane.dispose();

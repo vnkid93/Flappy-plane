@@ -8,26 +8,33 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
-import com.thevnkid93.game.sprites.Plane;
+import com.thevnkid93.game.SoundCons;
 import com.thevnkid93.game.sprites.Score;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manager class for score drawing
+ */
 public class ScoreManager extends SpriteManager {
     private static final int FRAME_COUNT = 10;
     private List<Score> scores;
     private Texture texture;
     private Array<TextureRegion> frames;
-    private int frameWidth, frameHeight, drawingWidth, drawingHeight;
+    private int drawingWidth, drawingHeight;
     private int score;
     private Sound coinSound;
 
+    /**
+     * Constructor of the score manager class
+     * @param cipherWidth the drawing width of a single cipher
+     */
     public ScoreManager(int cipherWidth){
-        coinSound = Gdx.audio.newSound(Gdx.files.internal("coin1.wav"));
+        coinSound = Gdx.audio.newSound(Gdx.files.internal(SoundCons.COIN));
         texture = new Texture(ImgCons.NUMBERS);
-        frameWidth = texture.getWidth()/FRAME_COUNT;
-        frameHeight = texture.getHeight();
+        int frameWidth = texture.getWidth()/FRAME_COUNT;
+        int frameHeight = texture.getHeight();
         drawingWidth = cipherWidth;
         drawingHeight = frameHeight * drawingWidth/frameWidth;
         frames = new Array<TextureRegion>();
@@ -37,6 +44,10 @@ public class ScoreManager extends SpriteManager {
         resetScore();
     }
 
+    /**
+     * Updating score and the cipher positions
+     * @param dt the changing time
+     */
     @Override
     public void update(float dt) {
         String scoreStr = score+"";
@@ -51,18 +62,18 @@ public class ScoreManager extends SpriteManager {
         }
     }
 
-    public void setCipherWidth(int width){
-        this.drawingWidth = width;
-        this.drawingHeight = frameHeight * drawingWidth / frameWidth;
-        update(0);
-    }
-
+    /**
+     * Changing scores
+     */
     public void increase(){
         score++;
         coinSound.play(0.2f);
     }
 
-    public void resetScore(){
+    /**
+     * Reset score.
+     */
+    private void resetScore(){
         score = 0;
         scores = new ArrayList<Score>();
         scores.add(new Score(MyGame.WIDTH/2 - drawingWidth/2, MyGame.HEIGHT * 5 / 6, drawingWidth, drawingHeight, frames));
@@ -86,7 +97,4 @@ public class ScoreManager extends SpriteManager {
         return score;
     }
 
-    public List<Score> getScores() {
-        return scores;
-    }
 }

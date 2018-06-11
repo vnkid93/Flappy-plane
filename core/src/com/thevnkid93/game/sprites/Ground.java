@@ -11,8 +11,9 @@ import com.thevnkid93.game.managers.GroundManager;
 
 public class Ground extends Sprite {
 
-    private TextureRegion frame;
-
+    /**
+     * @see Sprite#Sprite(float, float, int, int, TextureRegion)
+     */
     public Ground(float x, float y, int width, int height, TextureRegion frame) {
         super(x, y, width, height);
         this.frame = frame;
@@ -24,12 +25,4 @@ public class Ground extends Sprite {
         position.x -= GroundManager.SCROLLING_SPEED * dt;
     }
 
-    @Override
-    public void dispose() {
-    }
-
-    @Override
-    public void draw(SpriteBatch sb) {
-        sb.draw(frame, position.x, position.y, width, height);
-    }
 }

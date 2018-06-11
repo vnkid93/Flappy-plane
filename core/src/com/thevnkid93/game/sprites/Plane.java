@@ -10,49 +10,52 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
+import com.thevnkid93.game.SoundCons;
 import com.thevnkid93.game.managers.GroundManager;
 
 import java.util.List;
 
 public class Plane extends Sprite{
+    /**
+     * Plane state
+     */
     public enum PlaneState{
-        HOVERING, STOPPING, FLYING;
+        HOVERING, FLYING;
     }
-    public static final int DEFAULT_X = MyGame.WIDTH/4;
-    public static final int DEFAULT_Y = MyGame.HEIGHT/2;
+    private PlaneState state;
 
+    private static final int DEFAULT_X = MyGame.WIDTH/4;
+    private static final int DEFAULT_Y = MyGame.HEIGHT/2;
     private static final int FRAME_WIDTH = 88, FRAME_HEIGHT = 73;
     private static final float ANIMATION_CYCLE_TIME = 0.3f;
     public static final int PLANE_WIDTH = MyGame.WIDTH/6;
     public static final int PLANE_HEIGHT = FRAME_HEIGHT * PLANE_WIDTH / FRAME_WIDTH;
-    private Vector2 velocity;
-
     private static final int GRAVITY = -20;
     private static final int JUMP_VALUE = 400;
+
+    private Vector2 velocity; // falling velocity
     private Texture plane;
-    // yDown = true
+    // the coordinates of plane textures (see planes.png)
     private final int planeSprites[][][] = {
             {{0,6}, {1,4}, {1,0}},
             {{0,5},{0,1},{0,0}},
             {{0,4},{0,3},{0,2}},
             {{1,3},{1,2},{1,1}}};
-    private PlaneState state;
     private Animation animation;
 
-    private Rectangle bounds[];
-    private float boundsRelYPositions[];
+    private Rectangle bounds[]; // plane bounds - for collision detection
+    private float boundsRelYPositions[]; // relative positions of plane bounds
     private Sound flapSound;
 
     public Plane(){
         super(DEFAULT_X, DEFAULT_Y, PLANE_WIDTH, PLANE_HEIGHT);
-        //shapeRenderer = new ShapeRenderer();
-        flapSound = Gdx.audio.newSound(Gdx.files.internal("flap.mp3"));
+        flapSound = Gdx.audio.newSound(Gdx.files.internal(SoundCons.FLAP));
 
         plane = new Texture(ImgCons.PLANES);
-        int planeIndex = (int) (Math.random()*planeSprites.length);
+        int randomPlane = (int) (Math.random()*planeSprites.length);
         state = PlaneState.HOVERING;
         velocity = new Vector2();
-        animation = new Animation(new TextureRegion(plane), FRAME_WIDTH, FRAME_HEIGHT, ANIMATION_CYCLE_TIME, planeSprites[planeIndex]);
+        animation = new Animation(new TextureRegion(plane), FRAME_WIDTH, FRAME_HEIGHT, ANIMATION_CYCLE_TIME, planeSprites[randomPlane]);
         initBounds();
     }
 
@@ -77,11 +80,14 @@ public class Plane extends Sprite{
 
     }
 
+    /**
+     * @see Sprite#update(float)
+     */
     @Override
     public void update(float dt) {
         if(state == PlaneState.HOVERING){
             animation.update(dt);
-        }else if(state == PlaneState.FLYING){
+        }else {
             animation.update(dt);
             if(state == PlaneState.FLYING){
                 velocity.add(0, GRAVITY);
@@ -91,28 +97,25 @@ public class Plane extends Sprite{
                 for (int i = 0; i < bounds.length; i++) {
                     bounds[i].y = position.y + boundsRelYPositions[i];
                 }
-
                 velocity.scl(1/dt);
-
             }
-        }else {
-            // stopping... doing nothing
         }
-
-
-
     }
 
+    /**
+     * @see Sprite#dispose()
+     */
     @Override
     public void dispose() {
         plane.dispose();
         flapSound.dispose();
     }
 
+    /**
+     * @see Sprite#draw(SpriteBatch)
+     */
     @Override
     public void draw(SpriteBatch sb) {
-        if(state == PlaneState.FLYING){
-        }
         sb.draw(animation.getFrame(), position.x, position.y, PLANE_WIDTH, PLANE_HEIGHT);
     }
 
@@ -121,7 +124,10 @@ public class Plane extends Sprite{
         return bounds;
     }
 
-
+    /**
+     * The only one plane action.
+     * Making plane and its bounds jump
+     */
     public void jump(){
         if(getPosition().y + height < MyGame.HEIGHT){
             flapSound.play();

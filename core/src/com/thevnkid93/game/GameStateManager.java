@@ -6,6 +6,9 @@ import com.thevnkid93.game.states.State;
 
 import java.util.Stack;
 
+/**
+ * A manager for managing our states. It has Stack structure
+ */
 public class GameStateManager {
     private Stack<State> states;
 
@@ -28,7 +31,7 @@ public class GameStateManager {
 
     /**
      * Update for the state on the top
-     * @param dt
+     * @param dt the changed time - delta time
      */
     public boolean update(float dt){
         if(states.isEmpty()){
@@ -41,7 +44,7 @@ public class GameStateManager {
 
     /**
      * Render the top state
-     * @param sb
+     * @param sb rendering instance
      */
     public boolean render(SpriteBatch sb){
         if(states.isEmpty()){

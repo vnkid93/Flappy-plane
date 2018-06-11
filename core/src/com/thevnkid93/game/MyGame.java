@@ -8,6 +8,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.thevnkid93.game.states.MenuState;
 
+/**
+ * The main starting point
+ */
 public class MyGame extends ApplicationAdapter {
 	public  static final int WIDTH = 480;
 	public  static final int HEIGHT = 800;
@@ -22,9 +25,9 @@ public class MyGame extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		gsm = new GameStateManager();
-		music = Gdx.audio.newMusic(Gdx.files.internal("bgmusic.mp3"));
+		music = Gdx.audio.newMusic(Gdx.files.internal(SoundCons.BACKGROUND_MUSIC));
 		music.setLooping(true);
-		music.setVolume(.3f);
+		music.setVolume(.15f);
 		music.play();
 		Gdx.gl.glClearColor(0, 0, 0, 1); // clearing
 		gsm.push(new MenuState(gsm));
@@ -41,6 +44,9 @@ public class MyGame extends ApplicationAdapter {
 		}
 	}
 
+	/**
+	 * Dealocate all resources
+	 */
 	@Override
 	public void dispose() {
 		super.dispose();

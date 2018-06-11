@@ -7,8 +7,9 @@ import com.thevnkid93.game.managers.DecorationManager;
 
 public class Decoration extends Sprite {
 
-    private TextureRegion frame;
-
+    /**
+     * @see Sprite#Sprite(float, float, int, int, TextureRegion)
+     */
     public Decoration(float x, float y, int width, int height, TextureRegion frame) {
         super(x, y, width, height);
         this.frame = frame;
@@ -16,20 +17,7 @@ public class Decoration extends Sprite {
 
     @Override
     public void update(float dt) {
-        position.x -= DecorationManager.DECORATION_SCROLL_SPEED * dt;
+        position.x -= DecorationManager.DECORATION_SCROLL_SPEED * dt; // scrolling same as ground
     }
 
-    @Override
-    public void dispose() {
-        // no need. Texture disposed in its manager
-    }
-
-    @Override
-    public void draw(SpriteBatch sb) {
-        sb.draw(frame, position.x, position.y, width, height);
-    }
-
-    public void setFrame(TextureRegion frame){
-        this.frame = frame;
-    }
 }

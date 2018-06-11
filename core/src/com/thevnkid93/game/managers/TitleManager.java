@@ -8,38 +8,38 @@ import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
 import com.thevnkid93.game.sprites.BasicSprite;
 
+/**
+ * The manager for frawing Get Ready and Game Over title
+ */
 public class TitleManager extends SpriteManager {
 
+    // Title status
     public enum Title{
         GET_READY, GAME_OVER, NOTHING;
     }
-    private static final int TITLE_COUNT = 2;
+    private static final int TITLE_COUNT = 2; // frame count
     private Texture texture;
-    private Array<TextureRegion> frames;
+    private Array<TextureRegion> frames; // frame list
     private Title title;
     private BasicSprite sprite;
-    private int drawingWidth, drawingHeight, frameWidth, frameHeight;
 
     public TitleManager(){
         texture = new Texture(ImgCons.NAVIGATION_TITLES);
         frames = new Array<TextureRegion>();
-        frameWidth = texture.getWidth()/TITLE_COUNT;
-        frameHeight = texture.getHeight();
+        int frameWidth = texture.getWidth()/TITLE_COUNT;
+        int frameHeight = texture.getHeight();
 
         for (int i = 0; i < TITLE_COUNT; i++) {
             frames.add(new TextureRegion(texture,  i * frameWidth, 0, frameWidth, frameHeight));
         }
 
-        drawingWidth = (int) (MyGame.WIDTH * 0.8);
-        drawingHeight = (int) (frameHeight * drawingWidth / frameWidth);
+        int drawingWidth = (int) (MyGame.WIDTH * 0.8);
+        int drawingHeight = (int) (frameHeight * drawingWidth / frameWidth);
 
         sprite = new BasicSprite(MyGame.WIDTH/2 - drawingWidth/2, MyGame.HEIGHT * 5 / 6, drawingWidth, drawingHeight, frames.get(0));
         title = Title.GET_READY;
     }
-    @Override
-    public void update(float dt) {
-        // nothing
-    }
+
 
     @Override
     public void draw(SpriteBatch sb) {

@@ -6,10 +6,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 public class Tip extends Sprite{
-    private TextureRegion frame;
     private int firstFrame;
     private Vector2 firstPosition;
 
+    /**
+     * @see Sprite#Sprite(float, float, int, int, TextureRegion)
+     */
     public Tip(float x, float y, int width, int height, TextureRegion frame) {
         super(x, y, width, height);
         firstPosition = new Vector2(x, y);
@@ -17,15 +19,6 @@ public class Tip extends Sprite{
         this.firstFrame = 0;
     }
 
-    @Override
-    public void update(float dt) {
-        // nothing here
-    }
-
-    @Override
-    public void dispose() {
-        // nothing here
-    }
 
     public void setFrame(TextureRegion frame, int index) {
         this.frame = frame;
@@ -37,9 +30,5 @@ public class Tip extends Sprite{
         }
     }
 
-    @Override
-    public void draw(SpriteBatch sb) {
-        sb.draw(frame, position.x, position.y, width, height);
-    }
 
 }

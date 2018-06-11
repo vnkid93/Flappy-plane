@@ -9,24 +9,26 @@ import com.thevnkid93.game.ImgCons;
 import com.thevnkid93.game.MyGame;
 import com.thevnkid93.game.sprites.Ground;
 
-
+/**
+ * Ground manager class for drawing and scrolling grounds
+ */
 public class GroundManager extends SpriteManager{
-    public static final int SCROLLING_SPEED = 6*BackgroundManager.BACKGROUND_SCROLLING_SPEED;
-    private Texture groundTop, groundBottom;
-    public static final int GROUND_WIDTH = MyGame.HEIGHT/9;
+    public static final int SCROLLING_SPEED = 8*BackgroundManager.BACKGROUND_SCROLLING_SPEED;
+    private static final int GROUND_WIDTH = MyGame.HEIGHT/9;
     public static final int GROUND_HEIGHT = GROUND_WIDTH;
     private static final int GROUND_COUNT = (int)Math.ceil((float)MyGame.WIDTH/GROUND_WIDTH) + 1;
     private static final int FRAME_COUNT = 2;
 
     private Texture texture;
-    private Array<TextureRegion> frames;
     private Ground[] topGrounds, bottomGrounds;
     private int firstWave;
-    private Rectangle bound;
 
+    /**
+     * Constructor of groundmanager
+     */
     public GroundManager(){
         texture = new Texture(ImgCons.GROUNDS);
-        frames = new Array<TextureRegion>();
+        Array<TextureRegion> frames = new Array<TextureRegion>();
         int frameWidth = texture.getWidth()/FRAME_COUNT;
         int frameHeight = texture.getHeight();
 
@@ -40,9 +42,11 @@ public class GroundManager extends SpriteManager{
             topGrounds[i] = new Ground(i*GROUND_WIDTH, GROUND_HEIGHT, GROUND_WIDTH, GROUND_HEIGHT, frames.get(0));
             bottomGrounds[i] = new Ground(i*GROUND_WIDTH, 0, GROUND_WIDTH, GROUND_HEIGHT, frames.get(1));
         }
-        bound = new Rectangle(0, 0, MyGame.WIDTH, GROUND_HEIGHT * 2);
     }
 
+    /**
+     * Repositioning ground blocks to make it continuously scroll
+     */
     private void reposition(){
         int lastIndex = firstWave-1 < 0 ? GROUND_COUNT-1 : firstWave-1;
         topGrounds[firstWave].getPosition().x = topGrounds[lastIndex].getPosition().x + GROUND_WIDTH;
@@ -50,6 +54,10 @@ public class GroundManager extends SpriteManager{
         firstWave = (firstWave+1) % GROUND_COUNT;
     }
 
+    /**
+     * Scrolling ground sprites
+     * @param dt the changing time
+     */
     @Override
     public void update(float dt) {
         for (int i = 0; i < GROUND_COUNT; i++) {
@@ -61,6 +69,10 @@ public class GroundManager extends SpriteManager{
         }
     }
 
+    /**
+     * Drawing ground blocks
+     * @param sb drawing instance
+     */
     @Override
     public void draw(SpriteBatch sb) {
         for (int i = 0; i < GROUND_COUNT; i++) {
@@ -74,12 +86,4 @@ public class GroundManager extends SpriteManager{
         texture.dispose();
     }
 
-    public boolean collide(Rectangle[] bounds){
-        for (int i = 0; i < bounds.length; i++) {
-            if(bounds[i].overlaps(bound)){
-                return true;
-            }
-        }
-        return false;
-    }
 }

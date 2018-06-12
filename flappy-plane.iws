@@ -1,71 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a725292c-94db-44f9-9e2d-69e37709cb36" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/SoundCons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/res/drawable-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/res/drawable-mdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/res/drawable-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/res/drawable-xhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/res/drawable-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/res/drawable-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/GameStateManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyInputProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/MyInputProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BlockManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BlockManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/DecorationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/DecorationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/GroundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/GroundManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/MenuBoardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/MenuBoardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/ScoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/ScoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/SpriteManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/SpriteManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TipsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TipsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TitleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/TitleManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Animation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Background.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/BasicSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/BasicSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Decoration.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Decoration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Ground.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Ground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/StatusTitle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Tip.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/sprites/Tip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/PlayState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/thevnkid93/game/states/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flappy-plane.iws" beforeDir="false" afterPath="$PROJECT_DIR$/flappy-plane.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/android/android.apk" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/android/android.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/android/android.unaligned.apk" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/android/android.unaligned.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/GameStateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/GameStateManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/ImgCons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/ImgCons.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/MyGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/MyGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/MyInputProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/MyInputProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/BlockManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/BlockManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/DecorationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/DecorationManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/GroundManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/GroundManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/MenuBoardManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/MenuBoardManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/ScoreManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/ScoreManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/SpriteManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/SpriteManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/TipsManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/TipsManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/TitleManager$Title.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/TitleManager$Title.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/TitleManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/managers/TitleManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Animation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Animation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Background.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Background.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/BasicSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/BasicSprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Block.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Decoration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Decoration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Ground.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Ground.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Plane$PlaneState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Plane$PlaneState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Plane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Score.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Score.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Sprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Sprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/StatusTitle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Tip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/sprites/Tip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState$GameState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/PlayState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/com/thevnkid93/game/states/State.class" afterDir="false" />
-    </list>
+    <list default="true" id="a725292c-94db-44f9-9e2d-69e37709cb36" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -136,32 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BackgroundManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java">
+      <file leaf-file-name="SpriteManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/SpriteManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
-              <folding>
-                <element signature="docComment;class#BackgroundManager#0" />
-                <element signature="method#BackgroundManager#0;class#BackgroundManager#0" />
-                <element signature="docComment;method#update#0;class#BackgroundManager#0" />
-                <element signature="method#update#0;class#BackgroundManager#0" />
-                <element signature="docComment;method#draw#0;class#BackgroundManager#0" />
-                <element signature="method#draw#0;class#BackgroundManager#0" />
-                <element signature="docComment;method#reposition#0;class#BackgroundManager#0" />
-                <element signature="method#reposition#0;class#BackgroundManager#0" />
-                <element signature="docComment;method#randBackground#0;class#BackgroundManager#0" />
-                <element signature="method#randBackground#0;class#BackgroundManager#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImgCons.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/ImgCons.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="63" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
+            <state relative-caret-position="238">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -226,8 +141,9 @@
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="1952" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="83" />
+    <option name="y" value="109" />
     <option name="width" value="1385" />
     <option name="height" value="873" />
   </component>
@@ -504,8 +420,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1651" y="0" width="1869" height="1080" extended-state="6" />
-    <editor active="true" />
+    <frame x="51" y="404" width="1549" height="873" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
@@ -527,11 +442,11 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49862865" visible="true" weight="0.32528856" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49862865" weight="0.4155496" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Captures" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17388919" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21091151" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -879,13 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/SpriteManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/GroundManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -917,35 +825,6 @@
             <element signature="method#render#0;class#PlayState#0" />
             <element signature="docComment;method#dispose#0;class#PlayState#0" />
             <element signature="method#dispose#0;class#PlayState#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;class#BackgroundManager#0" />
-            <element signature="method#BackgroundManager#0;class#BackgroundManager#0" />
-            <element signature="docComment;method#update#0;class#BackgroundManager#0" />
-            <element signature="method#update#0;class#BackgroundManager#0" />
-            <element signature="docComment;method#draw#0;class#BackgroundManager#0" />
-            <element signature="method#draw#0;class#BackgroundManager#0" />
-            <element signature="docComment;method#reposition#0;class#BackgroundManager#0" />
-            <element signature="method#reposition#0;class#BackgroundManager#0" />
-            <element signature="docComment;method#randBackground#0;class#BackgroundManager#0" />
-            <element signature="method#randBackground#0;class#BackgroundManager#0" />
           </folding>
         </state>
       </provider>
@@ -992,6 +871,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="63" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/BackgroundManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#BackgroundManager#0" />
+            <element signature="method#BackgroundManager#0;class#BackgroundManager#0" />
+            <element signature="docComment;method#update#0;class#BackgroundManager#0" />
+            <element signature="method#update#0;class#BackgroundManager#0" />
+            <element signature="docComment;method#draw#0;class#BackgroundManager#0" />
+            <element signature="method#draw#0;class#BackgroundManager#0" />
+            <element signature="docComment;method#reposition#0;class#BackgroundManager#0" />
+            <element signature="method#reposition#0;class#BackgroundManager#0" />
+            <element signature="docComment;method#randBackground#0;class#BackgroundManager#0" />
+            <element signature="method#randBackground#0;class#BackgroundManager#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/states/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/thevnkid93/game/managers/SpriteManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
         </state>
       </provider>
     </entry>

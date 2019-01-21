@@ -4,7 +4,7 @@ An Android game inspired by a popular Flappy bird game.
 ## Target Android SDK
 The game is written for Android 7.0 and newer
 ## Engine
-The use mainly LibGdx engine for rendering textures, playing sound effects and creating game logic. The used LibGdx version is 
+The use mainly LibGdx engine for rendering textures, playing sound effects and creating game logic. The used LibGdx version is 1.6.1
 
 ## Screenshots
 ![Starting screen](/screenshots/img1.png?raw=true "Starting screen")
